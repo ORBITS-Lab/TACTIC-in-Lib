@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Coding Track Module 4 | TACTIC in Lib: IMLS AI Workshop</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        .hero-gradient {
+            background: linear-gradient(rgba(0, 0, 0, 0.72), rgba(30, 58, 138, 0.82)), url('https://images.unsplash.com/photo-1524995997946-a1c2e315a42f?ixlib=rb-1.2.1&auto=format&fit=crop&w=1600&q=80');
+        }
+    </style>
+</head>
+
+<body class="bg-gray-50 font-sans">
+    <nav class="bg-white shadow-md sticky top-0 z-50">
+        <div class="max-w-7xl mx-auto px-4 py-3 flex justify-between items-center">
+            <div class="flex items-center gap-3">
+                <img src="Purdue_library_logo.png" alt="Purdue Libraries Logo" class="h-14 w-auto object-contain">
+                <div class="hidden sm:block h-8 w-px bg-gray-300"></div>
+                <div class="hidden sm:block text-xl font-bold text-blue-900"><a href="index.html">TACTIC in Lib</a>
+                </div>
+            </div>
+            <ul class="hidden md:flex space-x-8 text-gray-700 font-medium">
+                <li><a href="index.html#home" class="hover:text-blue-600">Home</a></li>
+                <li><a href="index.html#about" class="hover:text-blue-600">About</a></li>
+                <li><a href="index.html#modules" class="hover:text-blue-600">Modules</a></li>
+                <li><a href="#" class="hover:text-blue-600">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <header class="hero-gradient bg-cover bg-center h-[400px] flex items-center justify-center text-center text-white">
+        <div class="px-4">
+            <h1 class="text-5xl font-extrabold mb-4 uppercase tracking-tight">Coding Track for Module 4 - Digital Archive AI Pathway</h1>
+            <p class="text-xl max-w-3xl mx-auto mb-8 text-blue-100">
+                Text and Image Processing for Digital Archives: extracting, cleaning, analyzing, and interpreting archival collections with AI.
+            </p>
+        </div>
+    </header>
+
+    <section class="max-w-4xl mx-auto py-16 px-4">
+        <div class="bg-white rounded-2xl shadow-xl p-8 -mt-24 relative z-10 border-t-4 border-blue-500">
+            <h2 class="text-3xl font-bold text-blue-900 mb-6">From Archives to AI Insights</h2>
+            <p class="text-gray-700 text-lg leading-relaxed mb-6">
+                This module introduces a practical coding workflow for digital archive materials. Learners move from raw
+                PDF documents and image-based pages to machine-readable text, structured classification outputs, sentiment
+                insights, and multimodal image search.
+            </p>
+
+            <h3 class="text-2xl font-bold text-gray-800 mt-10 mb-6 border-b pb-2">Learning Goals</h3>
+            <div class="space-y-6">
+                <div class="flex gap-4">
+                    <div class="w-12 h-12 rounded-full bg-orange-100 text-orange-600 flex items-center justify-center flex-shrink-0 font-bold text-xl">1</div>
+                    <div>
+                        <h4 class="text-xl font-bold text-gray-900 mb-2">PDF Text Extraction & OCR</h4>
+                        <p class="text-gray-600">Inspect whether archival PDFs contain a text layer, compare born-digital and scanned documents, and use OCR when text exists only as an image.</p>
+                    </div>
+                </div>
+
+                <div class="flex gap-4">
+                    <div class="w-12 h-12 rounded-full bg-blue-100 text-blue-600 flex items-center justify-center flex-shrink-0 font-bold text-xl">2</div>
+                    <div>
+                        <h4 class="text-xl font-bold text-gray-900 mb-2">Archival Text Classification</h4>
+                        <p class="text-gray-600">Prepare cleaned archival text for NLP and classify pages or records into meaningful categories using lightweight machine learning workflows.</p>
+                    </div>
+                </div>
+
+                <div class="flex gap-4">
+                    <div class="w-12 h-12 rounded-full bg-purple-100 text-purple-600 flex items-center justify-center flex-shrink-0 font-bold text-xl">3</div>
+                    <div>
+                        <h4 class="text-xl font-bold text-gray-900 mb-2">Sentiment Analysis Applications</h4>
+                        <p class="text-gray-600">Apply rule-based and pretrained language-model approaches to interpret positive, neutral, negative, or mixed sentiment in text collections.</p>
+                    </div>
+                </div>
+
+                <div class="flex gap-4">
+                    <div class="w-12 h-12 rounded-full bg-green-100 text-green-600 flex items-center justify-center flex-shrink-0 font-bold text-xl">4</div>
+                    <div>
+                        <h4 class="text-xl font-bold text-gray-900 mb-2">Multimodal Image Search</h4>
+                        <p class="text-gray-600">Use CLIP-style image and text embeddings to connect visual materials with natural-language queries for retrieval and digital collection exploration.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="mt-12 bg-gray-50 rounded-xl p-6 border-l-4 border-yellow-500 shadow-sm flex items-start gap-4">
+                <div class="text-3xl mt-1">🗂️</div>
+                <div>
+                    <h4 class="text-lg font-bold text-gray-900 mb-2">Why Digital Archive Processing Matters</h4>
+                    <p class="text-gray-600 mb-3 text-sm">
+                        Archive collections often mix born-digital PDFs, scanned pages, captions, images, and historical text.
+                        Choosing the right extraction method is the first step toward reliable AI analysis, because OCR noise,
+                        missing text layers, and formatting artifacts can affect every downstream result.
+                    </p>
+                </div>
+            </div>
+
+            <!-- Section 1: Coding Projects -->
+            <div class="mt-10 bg-white border border-gray-200 rounded-2xl shadow-sm overflow-hidden">
+                <div class="bg-gray-800 px-6 py-4 text-white flex items-center justify-between">
+                    <h4 class="font-bold text-lg">💡 Coding Projects</h4>
+                    <span class="bg-blue-500 text-xs px-2 py-1 rounded font-bold uppercase tracking-wider text-white">Google Colab</span>
+                </div>
+                <div class="p-6">
+                    <h5 class="text-xl font-bold text-gray-900 mb-2">Module 4: Text and Image Processing for Digital Archives</h5>
+                    <p class="text-gray-700 mb-4 text-sm font-medium">
+                        Complete the four guided coding tasks below. Each task includes a Colab notebook and a walkthrough
+                        video placeholder that you can replace with your final links.
+                    </p>
+
+                    <div class="space-y-6 mt-8">
+                        <!-- Task 1 -->
+                        <div class="p-5 bg-gray-50 rounded-xl border border-gray-100 shadow-sm">
+                            <h6 class="font-bold text-gray-800 mb-4 text-sm flex items-center uppercase tracking-wide">
+                                <span class="w-8 h-8 rounded-full bg-orange-100 text-orange-600 flex items-center justify-center mr-3 text-xs">1</span>
+                                Task 1: Extracting Content from PDFs
+                            </h6>
+                            <p class="text-gray-600 text-sm mb-4">
+                                Inspect digital archive PDFs, distinguish born-digital pages from scanned pages, extract text with PyMuPDF, and use pytesseract OCR when pages are image-based.
+                            </p>
+                            <div class="flex flex-wrap gap-4 pl-1">
+                                <a href="VIDEO_LINK_TASK_1" target="_blank" class="flex items-center px-4 py-2 bg-orange-50 text-orange-700 text-sm rounded-md hover:bg-orange-100 transition border border-orange-200 font-bold shadow-sm">
+                                    <span class="mr-2">📘</span> Watch Walkthrough Video
+                                </a>
+                                <a href="https://drive.google.com/file/d/1JOsLC3E8HraWwksp97uotnOi_R1Uhwfu/view?usp=drive_link" target="_blank" class="flex items-center px-4 py-2 bg-yellow-50 text-yellow-700 text-sm rounded-md hover:bg-yellow-100 transition border border-yellow-200 font-bold shadow-sm">
+                                    <span class="mr-2">🔶</span> Open Colab Notebook
+                                </a>
+                            </div>
+                        </div>
+
+                        <!-- Task 2 -->
+                        <div class="p-5 bg-gray-50 rounded-xl border border-gray-100 shadow-sm">
+                            <h6 class="font-bold text-gray-800 mb-4 text-sm flex items-center uppercase tracking-wide">
+                                <span class="w-8 h-8 rounded-full bg-blue-100 text-blue-600 flex items-center justify-center mr-3 text-xs">2</span>
+                                Task 2: Preparing Archival Text for NLP
+                            </h6>
+                            <p class="text-gray-600 text-sm mb-4">
+                                Clean extracted archive text, normalize formatting artifacts, organize page-level records, and prepare the data for text classification workflows.
+                            </p>
+                            <div class="flex flex-wrap gap-4 pl-1">
+                                <a href="VIDEO_LINK_TASK_2" target="_blank" class="flex items-center px-4 py-2 bg-blue-50 text-blue-700 text-sm rounded-md hover:bg-blue-100 transition border border-blue-200 font-bold shadow-sm">
+                                    <span class="mr-2">📘</span> Watch Walkthrough Video
+                                </a>
+                                <a href="COLAB_LINK_TASK_2" target="_blank" class="flex items-center px-4 py-2 bg-yellow-50 text-yellow-700 text-sm rounded-md hover:bg-yellow-100 transition border border-yellow-200 font-bold shadow-sm">
+                                    <span class="mr-2">🔶</span> Open Colab Notebook
+                                </a>
+                            </div>
+                        </div>
+
+                        <!-- Task 3 -->
+                        <div class="p-5 bg-gray-50 rounded-xl border border-gray-100 shadow-sm">
+                            <h6 class="font-bold text-gray-800 mb-4 text-sm flex items-center uppercase tracking-wide">
+                                <span class="w-8 h-8 rounded-full bg-purple-100 text-purple-600 flex items-center justify-center mr-3 text-xs">3</span>
+                                Task 3: Analyzing Digital Collections with Sentiment Analysis
+                            </h6>
+                            <p class="text-gray-600 text-sm mb-4">
+                                Apply sentiment analysis methods such as VADER, zero-shot classification, and pretrained transformer pipelines to interpret emotional tone in text collections.
+                            </p>
+                            <div class="flex flex-wrap gap-4 pl-1">
+                                <a href="https://drive.google.com/file/d/12cEguhwFu5T1Jp8FdJd-NwYi3dFwcO6x/view?usp=drive_link" target="_blank" class="flex items-center px-4 py-2 bg-purple-50 text-purple-700 text-sm rounded-md hover:bg-purple-100 transition border border-purple-200 font-bold shadow-sm">
+                                    <span class="mr-2">📘</span> Watch Walkthrough Video
+                                </a>
+                                <a href="https://colab.research.google.com/drive/1G3iorRPb8jXSMJ2TiVapTSOC5eK05E85?usp=drive_link" target="_blank" class="flex items-center px-4 py-2 bg-yellow-50 text-yellow-700 text-sm rounded-md hover:bg-yellow-100 transition border border-yellow-200 font-bold shadow-sm">
+                                    <span class="mr-2">🔶</span> Open Colab Notebook
+                                </a>
+                            </div>
+                        </div>
+
+                        <!-- Task 4 -->
+                        <div class="p-5 bg-gray-50 rounded-xl border border-gray-100 shadow-sm">
+                            <h6 class="font-bold text-gray-800 mb-4 text-sm flex items-center uppercase tracking-wide">
+                                <span class="w-8 h-8 rounded-full bg-green-100 text-green-600 flex items-center justify-center mr-3 text-xs">4</span>
+                                Task 4: Multimodal Application with CLIP
+                            </h6>
+                            <p class="text-gray-600 text-sm mb-4">
+                                Build an image search demo by encoding images and natural-language queries into a shared embedding space, comparing similarity scores, and returning top image matches.
+                            </p>
+                            <div class="flex flex-wrap gap-4 pl-1">
+                                <a href="https://drive.google.com/file/d/1ONnWZ4gNbZplC5Gysjbcj67stJsb765B/view?usp=drive_link" target="_blank" class="flex items-center px-4 py-2 bg-green-50 text-green-700 text-sm rounded-md hover:bg-green-100 transition border border-green-200 font-bold shadow-sm">
+                                    <span class="mr-2">📘</span> Watch Walkthrough Video
+                                </a>
+                                <a href="https://colab.research.google.com/drive/1AOrrQWfWj5WTXNAX8DCLiPJE1Eh2I9DE?usp=drive_link" target="_blank" class="flex items-center px-4 py-2 bg-yellow-50 text-yellow-700 text-sm rounded-md hover:bg-yellow-100 transition border border-yellow-200 font-bold shadow-sm">
+                                    <span class="mr-2">🔶</span> Open Colab Notebook
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Transition Text -->
+            <div class="mt-12 mb-8 text-center">
+                <p class="text-xl md:text-2xl font-black text-blue-950 px-8 py-4 rounded-xl inline-block border-2 border-yellow-200 shadow-lg tracking-tight">
+                    🚀 After processing the archive, compare how each AI output should be interpreted!
+                </p>
+            </div>
+
+            <!-- Section 2: Mini Exercise -->
+            <div class="mt-10 bg-white border border-gray-200 rounded-2xl shadow-sm overflow-hidden">
+                <div class="bg-gray-800 px-6 py-4 text-white flex items-center justify-between">
+                    <h4 class="font-bold text-lg">💡 Mini Exercise</h4>
+                    <span class="bg-green-500 text-xs px-2 py-1 rounded font-bold uppercase tracking-wider text-white">Archive AI Preview</span>
+                </div>
+                <div class="p-6">
+                    <h5 class="text-xl font-bold text-gray-900 mb-2">Quick Check: Which Method Fits the Archive Item?</h5>
+                    <p class="text-gray-700 mb-6 bg-blue-50 p-4 rounded-lg border-l-4 border-blue-500 text-sm">
+                        <strong>Scenario: “Choose the right processing step.”</strong><br>
+                        Learners decide whether a page needs direct text extraction, OCR, text classification, sentiment analysis, or multimodal image search.
+                    </p>
+                    <div class="bg-gray-900 rounded-lg p-5 overflow-x-auto shadow-inner">
+                        <pre class="font-mono text-sm leading-relaxed text-gray-300"><code><span class="text-gray-500"># Example decision logic for Module 4</span>
+
+<span class="text-gray-500"># Task 1: PDF extraction vs. OCR</span>
+if page_has_text_layer:
+    method = <span class="text-yellow-200">"extract_text_with_pymupdf"</span>
+else:
+    method = <span class="text-yellow-200">"run_ocr_with_tesseract"</span>
+
+<span class="text-gray-500"># Task 2: Text classification</span>
+classification_output = {
+    <span class="text-yellow-200">"page_id"</span>: <span class="text-yellow-200">"page_001"</span>,
+    <span class="text-yellow-200">"predicted_category"</span>: <span class="text-yellow-200">"archives"</span>,
+    <span class="text-yellow-200">"confidence"</span>: <span class="text-blue-300">0.86</span>
+}
+
+<span class="text-gray-500"># Task 3: Sentiment analysis</span>
+sentiment_output = {
+    <span class="text-yellow-200">"text"</span>: <span class="text-yellow-200">"Visitors loved the exhibit."</span>,
+    <span class="text-yellow-200">"label"</span>: <span class="text-yellow-200">"positive"</span>
+}
+
+<span class="text-gray-500"># Task 4: Multimodal retrieval</span>
+clip_search = {
+    <span class="text-yellow-200">"query"</span>: <span class="text-yellow-200">"people reading in a library"</span>,
+    <span class="text-yellow-200">"top_result"</span>: <span class="text-yellow-200">"archive_image_03.jpg"</span>
+}</code></pre>
+                    </div>
+                </div>
+            </div>
+
+            <div class="mt-12 text-center">
+                <a href="index.html#modules" class="inline-block bg-blue-600 text-white font-bold px-8 py-3 rounded-full hover:bg-blue-700 transition shadow-lg">Back
+                    to All Modules</a>
+            </div>
+        </div>
+    </section>
+
+    <footer class="bg-blue-900 text-white py-12">
+        <div class="max-w-7xl mx-auto px-4 text-center">
+            <p class="mb-4 font-bold text-xl uppercase tracking-widest">TACTIC Institute x IMLS</p>
+            <p class="text-blue-300 text-sm">Supported by IMLS Grant LB21. Focused on GLAM institution expansion.</p>
+        </div>
+    </footer>
+</body>
+
+</html>
