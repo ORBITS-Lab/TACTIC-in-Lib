@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Module 4: No-Code Data Annotation & OCR | TACTIC in Lib</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        .hero-gradient {
+            background: linear-gradient(rgba(0, 0, 0, 0.72), rgba(30, 58, 138, 0.82)), url('https://images.unsplash.com/photo-1450101499163-c8848c66ca85?ixlib=rb-1.2.1&auto=format&fit=crop&w=1600&q=80');
+        }
+        code { white-space: pre-wrap; }
+    </style>
+</head>
+
+<body class="bg-gray-50 font-sans">
+    <nav class="bg-white shadow-md sticky top-0 z-50">
+        <div class="max-w-7xl mx-auto px-4 py-3 flex justify-between items-center">
+            <div class="flex items-center gap-3">
+                <img src="Purdue_library_logo.png" alt="Purdue Libraries Logo" class="h-14 w-auto object-contain">
+                <div class="hidden sm:block h-8 w-px bg-gray-300"></div>
+                <div class="hidden sm:block text-xl font-bold text-blue-900"><a href="index.html">TACTIC in Lib</a></div>
+            </div>
+            <ul class="hidden md:flex space-x-8 text-gray-700 font-medium">
+                <li><a href="index.html#home" class="hover:text-blue-600">Home</a></li>
+                <li><a href="index.html#about" class="hover:text-blue-600">About</a></li>
+                <li><a href="index.html#modules" class="hover:text-blue-600">Modules</a></li>
+                <li><a href="#" class="hover:text-blue-600">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <header class="hero-gradient bg-cover bg-center h-[320px] flex items-center justify-center text-center text-white">
+        <div class="px-4">
+            <h1 class="text-4xl md:text-5xl font-extrabold mb-4 uppercase tracking-tight">Module 4: No-Code Data Annotation & OCR</h1>
+            <p class="text-lg md:text-xl max-w-3xl mx-auto text-blue-100">
+                Creating labeled datasets and extracting editable text from scanned materials without writing code.
+            </p>
+        </div>
+    </header>
+
+    <main class="max-w-4xl mx-auto py-12 px-4">
+        <div class="space-y-8">
+
+            <!-- Overview -->
+            <div class="bg-white rounded-xl shadow-sm border border-gray-100 overflow-hidden">
+                <div class="bg-blue-600 px-6 py-4">
+                    <h3 class="text-white font-bold text-lg">Why No-Code Annotation and OCR?</h3>
+                </div>
+                <div class="p-6 text-gray-700 leading-relaxed space-y-4">
+                    <p>Many AI projects require data that is not ready for modeling yet. Text may need labels, images may need categories or bounding boxes, and scanned documents may need to be converted into editable text.</p>
+                    <div class="bg-blue-50 p-4 rounded-lg border-l-4 border-blue-500">
+                        <p><strong>Module goal:</strong> learners practice two practical no-code workflows: using <strong>Label Studio</strong> to create labeled datasets and using <strong>Google Docs OCR</strong> to extract text from scanned PDFs or images.</p>
+                    </div>
+                    <p>This module connects directly to library and GLAM workflows, including digitized collections, metadata enrichment, image description, transcription review, and preparing training data for AI models.</p>
+                </div>
+            </div>
+
+            <!-- Workflow -->
+            <div class="bg-white rounded-xl shadow-sm border border-gray-100 overflow-hidden">
+                <div class="bg-blue-600 px-6 py-4">
+                    <h3 class="text-white font-bold text-lg">The No-Code Workflow</h3>
+                </div>
+                <div class="p-6 text-gray-700 leading-relaxed space-y-4">
+                    <p>The module follows a simple workflow that moves from raw material to AI-ready data.</p>
+                    <div class="grid md:grid-cols-3 gap-4">
+                        <div class="bg-gray-50 p-4 rounded-lg border border-gray-200">
+                            <h4 class="font-bold text-blue-800 mb-2">1. Collect</h4>
+                            <p class="text-sm">Start with unlabeled text, images, PDFs, or document scans.</p>
+                        </div>
+                        <div class="bg-gray-50 p-4 rounded-lg border border-gray-200">
+                            <h4 class="font-bold text-blue-800 mb-2">2. Import</h4>
+                            <p class="text-sm">Upload data into Label Studio or open scanned files with Google Docs.</p>
+                        </div>
+                        <div class="bg-gray-50 p-4 rounded-lg border border-gray-200">
+                            <h4 class="font-bold text-blue-800 mb-2">3. Configure</h4>
+                            <p class="text-sm">Choose a labeling template such as text classification, image classification, OCR, or bounding boxes.</p>
+                        </div>
+                        <div class="bg-gray-50 p-4 rounded-lg border border-gray-200">
+                            <h4 class="font-bold text-blue-800 mb-2">4. Annotate</h4>
+                            <p class="text-sm">Assign labels, mark entities, draw boxes, or correct extracted OCR text.</p>
+                        </div>
+                        <div class="bg-gray-50 p-4 rounded-lg border border-gray-200">
+                            <h4 class="font-bold text-blue-800 mb-2">5. Review</h4>
+                            <p class="text-sm">Check whether labels are consistent and whether OCR output needs human correction.</p>
+                        </div>
+                        <div class="bg-gray-50 p-4 rounded-lg border border-gray-200">
+                            <h4 class="font-bold text-blue-800 mb-2">6. Export</h4>
+                            <p class="text-sm">Export labeled data as CSV or JSON for later cleaning, analysis, or model training.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Task 1 -->
+            <div class="bg-white rounded-xl shadow-sm border border-gray-100 overflow-hidden">
+                <div class="bg-blue-600 px-6 py-4">
+                    <h3 class="text-white font-bold text-lg">Task 1: Text Classification with Label Studio</h3>
+                </div>
+                <div class="p-6 text-gray-700 leading-relaxed space-y-4">
+                    <p><strong>Label Studio</strong> lets learners turn unlabeled text into a labeled dataset through a graphical interface. A common beginner task is sentiment analysis, where each row of text is labeled as positive, negative, neutral, or uncertain.</p>
+                    <div class="grid md:grid-cols-2 gap-4">
+                        <div class="bg-green-50 p-4 rounded-lg border-l-4 border-green-500">
+                            <h4 class="font-bold text-green-900 mb-2">Demo steps</h4>
+                            <ol class="list-decimal pl-5 text-sm space-y-1">
+                                <li>Create a new Label Studio project.</li>
+                                <li>Import a CSV file with unlabeled text.</li>
+                                <li>Select a text classification template.</li>
+                                <li>Add or revise label options.</li>
+                                <li>Label each task and export the result.</li>
+                            </ol>
+                        </div>
+                        <div class="bg-blue-50 p-4 rounded-lg border-l-4 border-blue-500">
+                            <h4 class="font-bold text-blue-900 mb-2">Teaching point</h4>
+                            <p class="text-sm">The interface helps learners understand that supervised AI requires examples with both <strong>input data</strong> and <strong>human-assigned labels</strong>.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Task 2 -->
+            <div class="bg-white rounded-xl shadow-sm border border-gray-100 overflow-hidden">
+                <div class="bg-blue-600 px-6 py-4">
+                    <h3 class="text-white font-bold text-lg">Task 2: Image Classification and Object Detection</h3>
+                </div>
+                <div class="p-6 text-gray-700 leading-relaxed space-y-4">
+                    <p>Label Studio can also support computer vision tasks. Learners can classify whole images, such as identifying cats and dogs, or draw bounding boxes around objects such as cars, houses, signs, or collection items.</p>
+                    <div class="bg-amber-50 p-4 rounded-lg border-l-4 border-amber-500">
+                        <p><strong>Why this matters:</strong> image labels can describe what an image contains, while bounding boxes describe <em>where</em> an object appears in the image. This difference is important for AI systems that work with visual collections.</p>
+                    </div>
+                    <ul class="list-disc pl-6 space-y-2">
+                        <li><strong>Image classification:</strong> choose one or more labels for an entire image.</li>
+                        <li><strong>Object detection:</strong> draw a box around each target object and assign a label.</li>
+                        <li><strong>Export:</strong> save annotations with image paths, labels, and bounding-box coordinates.</li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Task 3 -->
+            <div class="bg-white rounded-xl shadow-sm border border-gray-100 overflow-hidden">
+                <div class="bg-blue-600 px-6 py-4">
+                    <h3 class="text-white font-bold text-lg">Task 3: OCR with Google Docs</h3>
+                </div>
+                <div class="p-6 text-gray-700 leading-relaxed space-y-4">
+                    <p><strong>OCR</strong> stands for <strong>Optical Character Recognition</strong>. In this workflow, learners use Google Drive and Google Docs to convert scanned PDFs or images with text into editable document text.</p>
+                    <div class="grid md:grid-cols-2 gap-4">
+                        <div class="bg-purple-50 p-4 rounded-lg border-l-4 border-purple-500">
+                            <h4 class="font-bold text-purple-900 mb-2">Demo steps</h4>
+                            <ol class="list-decimal pl-5 text-sm space-y-1">
+                                <li>Upload a PDF or image file to Google Drive.</li>
+                                <li>Right-click the file.</li>
+                                <li>Select <strong>Open with → Google Docs</strong>.</li>
+                                <li>Review the image at the top and extracted text below.</li>
+                                <li>Edit OCR mistakes before reuse.</li>
+                            </ol>
+                        </div>
+                        <div class="bg-orange-50 p-4 rounded-lg border-l-4 border-orange-500">
+                            <h4 class="font-bold text-orange-900 mb-2">Quality reminder</h4>
+                            <p class="text-sm">OCR works better when the scan or photo is clear, well-lit, straight, and high contrast. Human review is still necessary because OCR can misread words, punctuation, layout, or handwriting.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Task 4 -->
+            <div class="bg-white rounded-xl shadow-sm border border-gray-100 overflow-hidden">
+                <div class="bg-blue-600 px-6 py-4">
+                    <h3 class="text-white font-bold text-lg">Task 4: OCR Annotation with Label Studio</h3>
+                </div>
+                <div class="p-6 text-gray-700 leading-relaxed space-y-4">
+                    <p>For more structured OCR tasks, Label Studio can be used to mark regions of a document image and type the text that appears in each region. This is useful when learners want both the <strong>location</strong> of text and the <strong>transcribed content</strong>.</p>
+                    <div class="bg-gray-50 p-4 rounded-lg border border-gray-200">
+                        <ul class="space-y-3">
+                            <li><strong>Document image:</strong> upload a scan or photograph of a page.</li>
+                            <li><strong>OCR template:</strong> choose the optical character recognition template under computer vision.</li>
+                            <li><strong>Region marking:</strong> draw a box around a text area.</li>
+                            <li><strong>Transcription:</strong> enter the text shown in that region.</li>
+                        </ul>
+                    </div>
+                    <p>This workflow is especially relevant for historical documents, forms, receipts, handwritten notes, and digitized local collections.</p>
+                </div>
+            </div>
+
+            <!-- Core Skills -->
+            <div class="bg-white rounded-xl shadow-sm border border-gray-100 overflow-hidden">
+                <div class="bg-blue-600 px-6 py-4">
+                    <h3 class="text-white font-bold text-lg">Core Skills in This Module</h3>
+                </div>
+                <div class="p-6 text-gray-700 leading-relaxed space-y-4">
+                    <div class="grid md:grid-cols-2 gap-6">
+                        <div class="bg-blue-50 p-4 rounded-lg border border-blue-100">
+                            <h4 class="font-bold text-blue-800 mb-2">Annotation = Add Meaning</h4>
+                            <p class="text-sm">Learners practice turning raw data into usable AI examples by adding labels, categories, boxes, or transcriptions.</p>
+                        </div>
+                        <div class="bg-green-50 p-4 rounded-lg border border-green-100">
+                            <h4 class="font-bold text-green-800 mb-2">Templates = Task Design</h4>
+                            <p class="text-sm">Choosing the right template helps learners connect a dataset to a specific AI task such as classification, NER, object detection, or OCR.</p>
+                        </div>
+                        <div class="bg-purple-50 p-4 rounded-lg border border-purple-100">
+                            <h4 class="font-bold text-purple-800 mb-2">OCR = Text Extraction</h4>
+                            <p class="text-sm">OCR converts visual text into editable text, but learners must review the output for accuracy and formatting errors.</p>
+                        </div>
+                        <div class="bg-yellow-50 p-4 rounded-lg border border-yellow-100">
+                            <h4 class="font-bold text-yellow-800 mb-2">Export = Reuse</h4>
+                            <p class="text-sm">Exported CSV or JSON files can be cleaned, analyzed, shared, or used as training data in later AI workflows.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Library Applications -->
+            <div class="bg-white rounded-xl shadow-sm border border-gray-100 overflow-hidden">
+                <div class="bg-blue-600 px-6 py-4">
+                    <h3 class="text-white font-bold text-lg">Library and GLAM Applications</h3>
+                </div>
+                <div class="p-6 text-gray-700 leading-relaxed space-y-4">
+                    <ul class="list-disc pl-6 space-y-2">
+                        <li><strong>Digitized collections:</strong> extract and correct text from scanned archival materials.</li>
+                        <li><strong>Metadata support:</strong> label topics, object types, or document categories for later analysis.</li>
+                        <li><strong>Image collections:</strong> classify images or mark objects in photographs and exhibits.</li>
+                        <li><strong>Instruction:</strong> show learners how human judgment shapes AI-ready datasets.</li>
+                        <li><strong>Local AI projects:</strong> prepare small, custom datasets for classification, retrieval, or chatbot experiments.</li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Video Tutorials -->
+            <div class="bg-white rounded-xl shadow-sm border border-gray-100 overflow-hidden">
+                <div class="bg-blue-600 px-6 py-4">
+                    <h3 class="text-white font-bold text-lg">Video Tutorials</h3>
+                </div>
+                <div class="p-6">
+                    <p class="text-sm text-gray-600 mb-6">Replace each <strong>YouTube link placeholder</strong> with the final video URL after uploading.</p>
+                    <div class="grid gap-6">
+                        <div class="flex flex-col md:flex-row md:items-start gap-4 p-4 bg-blue-50/50 rounded-lg border border-blue-100">
+                            <a href="https://www.youtube.com/watch?v=R1ozTMrujOE" target="_blank" class="flex-shrink-0 flex items-center px-3 py-1.5 bg-blue-50 text-blue-700 text-xs rounded-md hover:bg-blue-100 transition border border-blue-100 h-fit">
+                                <span class="mr-1.5">🎬</span> Video 1: Label Studio for Data Annotation
+                            </a>
+                            <p class="text-sm text-gray-700 leading-relaxed">
+                                Introduces Label Studio as an open-source tool for creating labeled datasets from unlabeled data, including text classification, image classification, object detection, OCR, and intent/slot labeling.
+                            </p>
+                        </div>
+
+                        <div class="flex flex-col md:flex-row md:items-start gap-4 p-4 bg-green-50/50 rounded-lg border border-green-100">
+                            <a href="https://www.youtube.com/watch?v=4lApeCNK6Ic" target="_blank" class="flex-shrink-0 flex items-center px-3 py-1.5 bg-green-50 text-green-700 text-xs rounded-md hover:bg-green-100 transition border border-green-100 h-fit">
+                                <span class="mr-1.5">🎬</span> Video 2: Google Docs OCR
+                            </a>
+                            <p class="text-sm text-gray-700 leading-relaxed">
+                                Demonstrates how to use Google Drive and Google Docs to convert scanned PDFs or images into editable text through optical character recognition.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Learning Outcomes -->
+            <div class="bg-white rounded-xl shadow-sm border border-gray-100 overflow-hidden">
+                <div class="bg-blue-600 px-6 py-4">
+                    <h3 class="text-white font-bold text-lg">Learning Outcomes</h3>
+                </div>
+                <div class="p-6 text-gray-700 leading-relaxed space-y-4">
+                    <ul class="list-disc pl-6 space-y-2">
+                        <li>Explain why labeled data is necessary for many supervised AI workflows.</li>
+                        <li>Create a Label Studio project and import text, image, or document data.</li>
+                        <li>Choose appropriate templates for text classification, image classification, object detection, and OCR tasks.</li>
+                        <li>Use Google Docs OCR to extract editable text from scanned PDFs or image files.</li>
+                        <li>Evaluate OCR quality and identify why human correction remains important.</li>
+                        <li>Export labeled or extracted data for later cleaning, analysis, or AI model development.</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="pt-8 text-center">
+                <a href="index.html#modules" class="inline-block bg-blue-600 text-white font-bold px-8 py-3 rounded-full hover:bg-blue-700 transition shadow-lg">Back to Main Page</a>
+            </div>
+        </div>
+    </main>
+
+    <footer class="bg-blue-900 text-white py-12 mt-12">
+        <div class="max-w-7xl mx-auto px-4 text-center">
+            <p class="mb-2 font-bold text-lg uppercase tracking-widest text-blue-200">TACTIC Institute x IMLS</p>
+            <p class="text-blue-300 text-sm">Empowering the future of GLAM institutions through code and no-code AI innovation.</p>
+        </div>
+    </footer>
+</body>
+
+</html>

@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Module 1: No-Code Introduction | TACTIC in Lib</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        .hero-gradient {
+            background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(30, 58, 138, 0.8)), url('https://images.unsplash.com/photo-1507842217343-583bb7270b66?ixlib=rb-1.2.1&auto=format&fit=crop&w=1600&q=80');
+        }
+    </style>
+</head>
+
+<body class="bg-gray-50 font-sans">
+    <nav class="bg-white shadow-md sticky top-0 z-50">
+        <div class="max-w-7xl mx-auto px-4 py-3 flex justify-between items-center">
+            <div class="flex items-center gap-3">
+                <img src="Purdue_library_logo.png" alt="Purdue Libraries Logo" class="h-14 w-auto object-contain">
+                <div class="hidden sm:block h-8 w-px bg-gray-300"></div>
+                <div class="hidden sm:block text-xl font-bold text-blue-900"><a href="index.html">TACTIC in Lib</a>
+                </div>
+            </div>
+            <ul class="hidden md:flex space-x-8 text-gray-700 font-medium">
+                <li><a href="index.html#home" class="hover:text-blue-600">Home</a></li>
+                <li><a href="index.html#about" class="hover:text-blue-600">About</a></li>
+                <li><a href="index.html#modules" class="hover:text-blue-600">Modules</a></li>
+                <li><a href="#" class="hover:text-blue-600">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <header class="hero-gradient bg-cover bg-center h-[300px] flex items-center justify-center text-center text-white">
+        <div class="px-4">
+            <h1 class="text-4xl md:text-5xl font-extrabold mb-4 uppercase tracking-tight">Module 1: No-Code Introduction
+            </h1>
+            <p class="text-lg md:text-xl max-w-2xl mx-auto text-blue-100">
+                Laying the foundation for AI understanding in library science.
+            </p>
+        </div>
+    </header>
+
+    <main class="max-w-4xl mx-auto py-12 px-4">
+        <div class="space-y-8">
+
+            <!-- Question 1 -->
+            <div class="bg-white rounded-xl shadow-sm border border-gray-100 overflow-hidden">
+                <div class="bg-blue-600 px-6 py-4">
+                    <h3 class="text-white font-bold text-lg">What are AI, Machine Learning, and Generative AI?</h3>
+                </div>
+                <div class="p-6 text-gray-700 leading-relaxed space-y-4">
+                    <p>Think of it as a hierarchy of concepts, simplified for everyday understanding:</p>
+                    <ul class="list-disc pl-6 space-y-2">
+                        <li><strong>AI (Artificial Intelligence):</strong> The broad field of creating computers that
+                            can do tasks typically requiring human intelligence (e.g., recognizing patterns, making
+                            decisions).</li>
+                        <li><strong>Machine Learning (ML):</strong> A subset of AI where computers learn from data
+                            rather than being explicitly programmed for every scenario. It’s like teaching by example.
+                        </li>
+                        <li><strong>Generative AI:</strong> The newest branch that doesn't just analyze data but
+                            <em>creates new content</em>—like text, images, or even code—based on what it has learned.
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Question 2 -->
+            <div class="bg-white rounded-xl shadow-sm border border-gray-100 overflow-hidden">
+                <div class="bg-blue-600 px-6 py-4">
+                    <h3 class="text-white font-bold text-lg">What Large Language Models (LLMs) can and cannot do?</h3>
+                </div>
+                <div class="p-6 text-gray-700 leading-relaxed space-y-4">
+                    <div class="grid md:grid-cols-2 gap-6">
+                        <div class="bg-green-50 p-4 rounded-lg">
+                            <h4 class="font-bold text-green-800 mb-2">✅ CAN DO</h4>
+                            <ul class="list-disc pl-5 text-sm space-y-1 text-green-900">
+                                <li>Summarize long research papers.</li>
+                                <li>Draft emails or library descriptions.</li>
+                                <li>Translate metadata across languages.</li>
+                                <li>Brainstorm project ideas.</li>
+                            </ul>
+                        </div>
+                        <div class="bg-red-50 p-4 rounded-lg">
+                            <h4 class="font-bold text-red-800 mb-2">❌ CANNOT DO</h4>
+                            <ul class="list-disc pl-5 text-sm space-y-1 text-red-900">
+                                <li>"Think" or feel (they predict the next word).</li>
+                                <li>Guarantee 100% accuracy (they can "hallucinate").</li>
+                                <li>Access real-time info without external tools.</li>
+                                <li>Possess human-level common sense.</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Question 3 -->
+            <div class="bg-white rounded-xl shadow-sm border border-gray-100 overflow-hidden">
+                <div class="bg-blue-600 px-6 py-4">
+                    <h3 class="text-white font-bold text-lg">Overview of LLM-based Agents and Tool-Augmented AI</h3>
+                </div>
+                <div class="p-6 text-gray-700 leading-relaxed">
+                    <p class="mb-4">Standard LLMs are like smart consultants; <strong>AI Agents</strong> are like
+                        pro-active team members. They don't just talk—they take action. </p>
+                    <p><strong>Tool-Augmented AI</strong> refers to systems that give LLMs "superpowers" by allowing
+                        them to use calculators, search the web, or access library databases directly to perform
+                        specific tasks autonomously.</p>
+                </div>
+            </div>
+
+            <!-- Question 4 -->
+            <div class="bg-white rounded-xl shadow-sm border border-gray-100 overflow-hidden">
+                <div class="bg-blue-600 px-6 py-4">
+                    <h3 class="text-white font-bold text-lg">GPT-style Systems vs. Notebook-based Assistants</h3>
+                </div>
+                <div class="p-6 text-gray-700 leading-relaxed space-y-4">
+                    <p><strong>GPT-style (e.g., ChatGPT):</strong> A conversational interface designed for
+                        general-purpose interaction across any topic. Great for drafting and brainstorming.</p>
+                    <p><strong>Notebook-based (e.g., NotebookLM):</strong> Designed specifically for <em>grounding</em>
+                        AI in your own data. You upload your specific library policies or research PDFs, and the AI only
+                        answers based on those specific documents, providing citations for its claims.</p>
+                </div>
+            </div>
+
+            <!-- Question 5 -->
+            <div class="bg-white rounded-xl shadow-sm border border-gray-100 overflow-hidden">
+                <div class="bg-blue-600 px-6 py-4">
+                    <h3 class="text-white font-bold text-lg">Multimodal AI: Text, Image, PDF, and Web</h3>
+                </div>
+                <div class="p-6 text-gray-700 leading-relaxed">
+                    <p>Modern AI is no longer limited to text. <strong>Multimodal AI</strong> can "see" and "hear." It
+                        can analyze a scanned PDF of a historical document, describe what's in a library photograph, or
+                        browse a website to summarize its content—all in one session.</p>
+                </div>
+            </div>
+
+            <!-- Question 6 -->
+            <div class="bg-white rounded-xl shadow-sm border border-gray-100 overflow-hidden">
+                <div class="bg-blue-600 px-6 py-4">
+                    <h3 class="text-white font-bold text-lg">How these tools appear in Library Workflows?</h3>
+                </div>
+                <div class="p-6 text-gray-700 leading-relaxed space-y-4">
+                    <div class="bg-gray-50 p-4 rounded-lg border-l-4 border-blue-500">
+                        <ul class="space-y-4">
+                            <li><strong>Discovery:</strong> AI-powered search that understands <em>intent</em> rather
+                                than just keywords.</li>
+                            <li><strong>Metadata:</strong> Automatically suggesting subject headings or cleaning OCR
+                                errors in digitized collections.</li>
+                            <li><strong>Reference:</strong> Supporting chat services with instant summaries of library
+                                policies or FAQs.</li>
+                            <li><strong>Administration:</strong> Analyzing monthly usage data trends or drafting
+                                outreach materials.</li>
+                        </ul>
+                    </div>
+                </div>
+                <!-- Supplementary Slides -->
+                <div class="bg-gray-50 rounded-xl p-6 border-l-4 border-yellow-500 shadow-sm flex items-start gap-4">
+                    <div class="text-3xl mt-1">📊</div>
+                    <div>
+                        <h4 class="text-lg font-bold text-gray-900 mb-2">More Details</h4>
+                        <p class="text-gray-600 mb-3 text-sm">For more in-depth information and detailed concepts,
+                            please review the supplementary slide deck.</p>
+                        <a href="https://drive.google.com/file/d/1wh_sAdBmQ9QPhp-QTSPWFSAPS0S5OwSJ/view?usp=sharing"
+                            target="_blank"
+                            class="inline-flex items-center text-blue-600 font-bold hover:text-blue-800 transition text-sm">
+                            View Module 1 Slides <span class="ml-1">→</span>
+                        </a>
+                    </div>
+                </div>
+
+                <div class="pt-8 text-center">
+                    <a href="index.html#modules"
+                        class="inline-block bg-blue-600 text-white font-bold px-8 py-3 rounded-full hover:bg-blue-700 transition shadow-lg">Back
+                        to Main Page</a>
+                </div>
+            </div>
+
+
+            <!-- Video Tutorials -->
+            <div class="bg-white rounded-xl shadow-sm border border-gray-100 overflow-hidden">
+                <div class="bg-blue-600 px-6 py-4">
+                    <h3 class="text-white font-bold text-lg">Video Tutorials</h3>
+                </div>
+                <div class="p-6">
+                    <div class="grid gap-6">
+                        <!-- Gemini Walkthrough -->
+                        <div class="flex flex-col md:flex-row md:items-start gap-4 p-4 bg-blue-50/50 rounded-lg border border-blue-100">
+                            <a href="https://drive.google.com/file/d/19cXtItaTko83Pq0nWIMHOIq-Pgvh4WwR/view?usp=share_link" target="_blank" class="flex-shrink-0 flex items-center px-3 py-1.5 bg-blue-50 text-blue-700 text-xs rounded-md hover:bg-blue-100 transition border border-blue-100 h-fit">
+                                <span class="mr-1.5">🎬</span> Gemini - Walkthrough
+                            </a>
+                            <p class="text-sm text-gray-700 leading-relaxed">
+                                An introduction to mainstream LLM model interfaces, using <strong>Gemini</strong> as a primary example to explore standard chat features and settings.
+                            </p>
+                        </div>
+
+                        <!-- Gemini Memory -->
+                        <div class="flex flex-col md:flex-row md:items-start gap-4 p-4 bg-blue-50/50 rounded-lg border border-blue-100">
+                            <a href="https://drive.google.com/file/d/1FPmZ-fFpri8VlEQBbxsWzDHQ7eHQg1OB/view?usp=share_link" target="_blank" class="flex-shrink-0 flex items-center px-3 py-1.5 bg-blue-50 text-blue-700 text-xs rounded-md hover:bg-blue-100 transition border border-blue-100 h-fit">
+                                <span class="mr-1.5">🎬</span> Gemini - Memory & Retrieval
+                            </a>
+                            <p class="text-sm text-gray-700 leading-relaxed">
+                                A deep dive into <strong>Gemini's Memory and Retrieval</strong> capabilities, showing how the model manages long-term context and retrieves specific information from past interactions.
+                            </p>
+                        </div>
+
+                        <!-- NotebookLM Walkthrough -->
+                        <div class="flex flex-col md:flex-row md:items-start gap-4 p-4 bg-green-50/50 rounded-lg border border-green-100">
+                            <a href="https://drive.google.com/file/d/1kfUHkN9-LFtxUhCtHrvloN5eJ6ABP6zz/view?usp=sharing" target="_blank" class="flex-shrink-0 flex items-center px-3 py-1.5 bg-green-50 text-green-700 text-xs rounded-md hover:bg-green-100 transition border border-green-100 h-fit">
+                                <span class="mr-1.5">📘</span> NotebookLM - Walkthrough
+                            </a>
+                            <p class="text-sm text-gray-700 leading-relaxed">
+                                Explore what <strong>NotebookLM</strong> is and how its unique "grounded" interface differs from standard chatbots by focusing on your specific documents.
+                            </p>
+                        </div>
+
+                        <!-- NotebookLM Studio -->
+                        <div class="flex flex-col md:flex-row md:items-start gap-4 p-4 bg-green-50/50 rounded-lg border border-green-100">
+                            <a href="https://drive.google.com/file/d/1mY3Rn7kXTR9Yb3Q1wZnGTh8-j0hedhpR/view?usp=sharing" target="_blank" class="flex-shrink-0 flex items-center px-3 py-1.5 bg-green-50 text-green-700 text-xs rounded-md hover:bg-green-100 transition border border-green-100 h-fit">
+                                <span class="mr-1.5">📘</span> NotebookLM - Studio
+                            </a>
+                            <p class="text-sm text-gray-700 leading-relaxed">
+                                Learn about <strong>NotebookLM's Studio</strong> features, including how to automatically generate mindmaps, interactive podcasts, and structured study guides from your source library.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+    </main>
+
+    <footer class="bg-blue-900 text-white py-12 mt-12">
+        <div class="max-w-7xl mx-auto px-4 text-center">
+            <p class="mb-2 font-bold text-lg uppercase tracking-widest text-blue-200">TACTIC Institute x IMLS</p>
+            <p class="text-blue-300 text-sm">Empowering the future of GLAM institutions through code and no-code AI
+                innovation.</p>
+        </div>
+    </footer>
+</body>
+
+</html>

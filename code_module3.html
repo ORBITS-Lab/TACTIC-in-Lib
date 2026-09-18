@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Coding Track for Module 3 | TACTIC in Lib</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        .hero-gradient {
+            background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(30, 58, 138, 0.8)), url('https://images.unsplash.com/photo-1507842217343-583bb7270b66?ixlib=rb-1.2.1&auto=format&fit=crop&w=1600&q=80');
+        }
+    </style>
+</head>
+
+<body class="bg-gray-50 font-sans">
+    <nav class="bg-white shadow-md sticky top-0 z-50">
+        <div class="max-w-7xl mx-auto px-4 py-3 flex justify-between items-center">
+            <div class="flex items-center gap-3">
+                <img src="Purdue_library_logo.png" alt="Purdue Libraries Logo" class="h-14 w-auto object-contain">
+                <div class="hidden sm:block h-8 w-px bg-gray-300"></div>
+                <div class="hidden sm:block text-xl font-bold text-blue-900"><a href="index.html">TACTIC in Lib</a>
+                </div>
+            </div>
+            <ul class="hidden md:flex space-x-8 text-gray-700 font-medium">
+                <li><a href="index.html#home" class="hover:text-blue-600">Home</a></li>
+                <li><a href="index.html#about" class="hover:text-blue-600">About</a></li>
+                <li><a href="index.html#modules" class="hover:text-blue-600">Modules</a></li>
+                <li><a href="#" class="hover:text-blue-600">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <header class="hero-gradient bg-cover bg-center h-[400px] flex items-center justify-center text-center text-white">
+        <div class="px-4">
+            <h1 class="text-5xl font-extrabold mb-4 uppercase tracking-tight">Coding Track for Module 3 - RAG Pathway
+            </h1>
+            <p class="text-xl max-w-2xl mx-auto mb-8 text-blue-100">
+                Learn how retrieval, vector search, and prompt design come together to build grounded library
+                assistants with code.
+            </p>
+        </div>
+    </header>
+
+    <section class="max-w-4xl mx-auto py-16 px-4">
+        <div class="bg-white rounded-2xl shadow-xl p-8 -mt-24 relative z-10 border-t-4 border-blue-500">
+            <h2 class="text-3xl font-bold text-blue-900 mb-6">Building a Library RAG Assistant</h2>
+            <p class="text-gray-700 text-lg leading-relaxed mb-6">
+                The Coding track for Module 3 introduces the core architecture behind document-grounded chatbots. In a
+                library setting, this means teaching an assistant to answer with local policies, guides, and service
+                documentation instead of relying only on generic model memory.
+            </p>
+
+            <div class="mt-8 bg-gray-50 rounded-xl p-6 border-l-4 border-yellow-500 shadow-sm flex items-start gap-4">
+                <div class="text-3xl mt-1">📚</div>
+                <div>
+                    <h4 class="text-lg font-bold text-gray-900 mb-2">Project Reference: IMLS_Rag_lib</h4>
+                    <p class="text-gray-600 mb-3 text-sm">
+                        Use the project repository as a working example of how a library-focused RAG system can be
+                        structured, tested, and extended across ingestion, retrieval, and response generation.
+                    </p>
+                    <a href="https://github.com/tytytywang/IMLS_Rag_lib" target="_blank"
+                        class="inline-flex items-center text-blue-600 font-bold hover:text-blue-800 transition text-sm">
+                        View IMLS_Rag_lib on GitHub <span class="ml-1">→</span>
+                    </a>
+                </div>
+            </div>
+
+            <h3 class="text-2xl font-bold text-gray-800 mt-10 mb-6 border-b pb-2">Key Concepts</h3>
+            <div class="space-y-6">
+
+                <div class="flex gap-4">
+                    <div
+                        class="w-12 h-12 rounded-full bg-blue-100 text-blue-600 flex items-center justify-center flex-shrink-0 font-bold text-xl">
+                        1</div>
+                    <div>
+                        <h4 class="text-xl font-bold text-gray-900 mb-2">The RAG Pipeline</h4>
+                        <p class="text-gray-600 mb-3">
+                            A RAG workflow usually has four major stages: <strong>loading</strong> documents,
+                            <strong>chunking</strong> them into smaller passages, <strong>embedding</strong> those
+                            passages as vectors, and <strong>retrieving</strong> the most relevant chunks at question
+                            time.
+                        </p>
+                        <ul class="list-disc pl-5 text-sm text-gray-600 space-y-1">
+                            <li><strong>Loading:</strong> bring in PDFs, policy files, FAQs, LibGuide text, or web
+                                pages.</li>
+                            <li><strong>Chunking:</strong> split long documents into pieces small enough for precise
+                                retrieval.</li>
+                            <li><strong>Embedding:</strong> convert each chunk into a numeric vector that captures
+                                meaning.</li>
+                            <li><strong>Retrieval:</strong> find the chunks most semantically similar to a user
+                                question.</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="flex gap-4">
+                    <div
+                        class="w-12 h-12 rounded-full bg-green-100 text-green-600 flex items-center justify-center flex-shrink-0 font-bold text-xl">
+                        2</div>
+                    <div>
+                        <h4 class="text-xl font-bold text-gray-900 mb-2">LangChain Basics</h4>
+                        <p class="text-gray-600">
+                            <strong>LangChain</strong> helps connect the parts of a RAG workflow into one pipeline. In
+                            practice, you can "chain" a document retriever with an LLM so the model receives both the
+                            user question and the most relevant library passages before generating an answer.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="flex gap-4">
+                    <div
+                        class="w-12 h-12 rounded-full bg-purple-100 text-purple-600 flex items-center justify-center flex-shrink-0 font-bold text-xl">
+                        3</div>
+                    <div>
+                        <h4 class="text-xl font-bold text-gray-900 mb-2">Vector Databases (FAISS / Chroma)</h4>
+                        <p class="text-gray-600">
+                            Tools like <strong>FAISS</strong> and <strong>Chroma</strong> store document chunks as
+                            mathematical vectors. Instead of matching only exact keywords, they support
+                            <strong>semantic search</strong>, which means the system can retrieve passages that are
+                            conceptually related to the question even when the wording is different.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="flex gap-4">
+                    <div
+                        class="w-12 h-12 rounded-full bg-amber-100 text-amber-600 flex items-center justify-center flex-shrink-0 font-bold text-xl">
+                        4</div>
+                    <div>
+                        <h4 class="text-xl font-bold text-gray-900 mb-2">Prompt Templates</h4>
+                        <p class="text-gray-600">
+                            A strong <strong>system message</strong> tells the assistant how to behave. For library
+                            bots, prompt templates can define tone, citation behavior, boundaries, and fallback rules
+                            so the model acts like a professional librarian instead of a generic chatbot.
+                        </p>
+                    </div>
+                </div>
+
+            </div>
+
+            <!-- Section 1: Coding Projects -->
+            <div class="mt-10 bg-white border border-gray-200 rounded-2xl shadow-sm overflow-hidden">
+                <div class="bg-gray-800 px-6 py-4 text-white flex items-center justify-between">
+                    <h4 class="font-bold text-lg">💡 Coding Projects</h4>
+                    <span
+                        class="bg-blue-500 text-xs px-2 py-1 rounded font-bold uppercase tracking-wider text-white">Python
+                        + LangChain</span>
+                </div>
+                <div class="p-6">
+                    <h5 class="text-xl font-bold text-gray-900 mb-2">Task A: Understand the RAG Pipeline in Code</h5>
+                    <p class="text-gray-700 mb-4 text-sm font-medium">
+                        The example below shows how the major RAG stages connect in a single workflow: load library
+                        documents, split them into chunks, embed them, store them in a vector index, and retrieve
+                        relevant context for a user question.
+                    </p>
+
+                    <div class="bg-gray-900 rounded-lg p-5 overflow-x-auto shadow-inner">
+                        <pre
+                            class="font-mono text-sm leading-relaxed text-gray-300"><code><span class="text-gray-500"># 1. Load documents</span>
+<span class="text-purple-400">from</span> langchain_community.document_loaders <span class="text-purple-400">import</span> TextLoader
+<span class="text-purple-400">from</span> langchain.text_splitter <span class="text-purple-400">import</span> RecursiveCharacterTextSplitter
+<span class="text-purple-400">from</span> langchain_openai <span class="text-purple-400">import</span> OpenAIEmbeddings, ChatOpenAI
+<span class="text-purple-400">from</span> langchain_community.vectorstores <span class="text-purple-400">import</span> Chroma
+
+loader = TextLoader(<span class="text-yellow-200">"library_policy.txt"</span>)
+documents = loader.load()
+
+<span class="text-gray-500"># 2. Chunk the documents</span>
+splitter = RecursiveCharacterTextSplitter(chunk_size=<span class="text-blue-300">500</span>, chunk_overlap=<span class="text-blue-300">100</span>)
+chunks = splitter.split_documents(documents)
+
+<span class="text-gray-500"># 3. Embed and index</span>
+embeddings = OpenAIEmbeddings()
+vectorstore = Chroma.from_documents(chunks, embeddings)
+
+<span class="text-gray-500"># 4. Retrieve relevant chunks</span>
+retriever = vectorstore.as_retriever(search_kwargs={<span class="text-yellow-200">"k"</span>: <span class="text-blue-300">4</span>})
+results = retriever.invoke(<span class="text-yellow-200">"What is the borrowing limit for graduate students?"</span>)</code></pre>
+                    </div>
+
+                    <div class="mt-6 p-5 bg-gray-50 rounded-xl border border-gray-100 shadow-sm">
+                        <h6 class="font-bold text-gray-800 mb-3 text-sm uppercase tracking-wide">Why this matters in
+                            libraries</h6>
+                        <p class="text-sm text-gray-600 leading-relaxed">
+                            This pattern allows a chatbot to answer from local library documents such as circulation
+                            policies, study room rules, instruction guides, and service FAQs instead of relying on
+                            generalized internet text.
+                        </p>
+                    </div>
+
+                    <div class="mt-6 flex flex-wrap gap-4">
+                        <a href="https://github.com/tytytywang/IMLS_Rag_lib" target="_blank"
+                            class="flex items-center px-4 py-2 bg-gray-50 text-gray-800 text-sm rounded-md hover:bg-gray-100 transition border border-gray-200 font-bold shadow-sm">
+                            <span class="mr-2">💻</span> Open IMLS_Rag_lib Repository
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Transition Text -->
+            <div class="mt-12 mb-8 text-center">
+                <p
+                    class="text-xl md:text-2xl font-black text-blue-950 px-8 py-4 rounded-xl inline-block border-2 border-yellow-200 shadow-lg tracking-tight">
+                    🚀 Once retrieval works, the next step is teaching the assistant how to answer like a librarian.
+                </p>
+            </div>
+
+            <!-- Section 2: Mini Exercise -->
+            <div class="mt-10 bg-white border border-gray-200 rounded-2xl shadow-sm overflow-hidden">
+                <div class="bg-gray-800 px-6 py-4 text-white flex items-center justify-between">
+                    <h4 class="font-bold text-lg">💡 Mini Exercise</h4>
+                    <span
+                        class="bg-green-500 text-xs px-2 py-1 rounded font-bold uppercase tracking-wider text-white">Prompt
+                        Design</span>
+                </div>
+                <div class="p-6">
+                    <h5 class="text-xl font-bold text-gray-900 mb-2">Task B: Write a Library System Prompt</h5>
+                    <p class="text-gray-700 mb-6 bg-blue-50 p-4 rounded-lg border-l-4 border-blue-500 text-sm">
+                        <strong>Scenario: “Answer like a professional librarian.”</strong><br>
+                        In this task, learners design a prompt template that tells the model to stay grounded in
+                        retrieved context, avoid unsupported claims, and escalate uncertain questions to library staff.
+                    </p>
+                    <div class="bg-gray-900 rounded-lg p-5 overflow-x-auto shadow-inner">
+                        <pre
+                            class="font-mono text-sm leading-relaxed text-gray-300"><code><span class="text-purple-400">from</span> langchain.prompts <span class="text-purple-400">import</span> ChatPromptTemplate
+
+prompt = ChatPromptTemplate.from_messages([
+    (<span class="text-yellow-200">"system"</span>, <span class="text-yellow-200">"""
+You are a professional academic librarian assistant.
+Answer using only the retrieved library context.
+If the context does not contain the answer, say you are not certain.
+Do not invent policies, hours, or holdings.
+When appropriate, recommend contacting library staff for confirmation.
+"""</span>),
+    (<span class="text-yellow-200">"human"</span>, <span class="text-yellow-200">"""
+Question: {question}
+
+Retrieved context:
+{context}
+"""</span>)
+])</code></pre>
+                    </div>
+
+                    <div class="grid md:grid-cols-2 gap-6 mt-6">
+                        <div class="bg-green-50 p-4 rounded-lg">
+                            <h6 class="font-bold text-green-800 mb-2">Good Prompt Behaviors</h6>
+                            <ul class="list-disc pl-5 text-sm space-y-1 text-green-900">
+                                <li>Uses retrieved passages before answering.</li>
+                                <li>Maintains a helpful, professional tone.</li>
+                                <li>Admits uncertainty when evidence is missing.</li>
+                                <li>Protects against hallucinated library policies.</li>
+                            </ul>
+                        </div>
+                        <div class="bg-indigo-50 p-4 rounded-lg">
+                            <h6 class="font-bold text-indigo-800 mb-2">Where FAISS / Chroma Fit</h6>
+                            <ul class="list-disc pl-5 text-sm space-y-1 text-indigo-900">
+                                <li>Store chunk embeddings for fast similarity search.</li>
+                                <li>Return semantically related passages to the prompt.</li>
+                                <li>Improve answers even when wording does not exactly match.</li>
+                                <li>Support scalable search across large document collections.</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="mt-12 text-center">
+                <a href="index.html#modules"
+                    class="inline-block bg-blue-600 text-white font-bold px-8 py-3 rounded-full hover:bg-blue-700 transition shadow-lg">Back
+                    to All Modules</a>
+            </div>
+        </div>
+    </section>
+
+    <footer class="bg-blue-900 text-white py-12">
+        <div class="max-w-7xl mx-auto px-4 text-center">
+            <p class="mb-4 font-bold text-xl uppercase tracking-widest">TACTIC Institute x IMLS</p>
+            <p class="text-blue-300 text-sm">Supported by IMLS Grant LB21. Focused on GLAM institution expansion.</p>
+        </div>
+    </footer>
+</body>
+
+</html>

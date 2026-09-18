@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Module 3: No-Code RAG & Chatbots | TACTIC in Lib</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        .hero-gradient {
+            background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(30, 58, 138, 0.8)), url('https://images.unsplash.com/photo-1507842217343-583bb7270b66?ixlib=rb-1.2.1&auto=format&fit=crop&w=1600&q=80');
+        }
+    </style>
+</head>
+
+<body class="bg-gray-50 font-sans">
+    <nav class="bg-white shadow-md sticky top-0 z-50">
+        <div class="max-w-7xl mx-auto px-4 py-3 flex justify-between items-center">
+            <div class="flex items-center gap-3">
+                <img src="Purdue_library_logo.png" alt="Purdue Libraries Logo" class="h-14 w-auto object-contain">
+                <div class="hidden sm:block h-8 w-px bg-gray-300"></div>
+                <div class="hidden sm:block text-xl font-bold text-blue-900"><a href="index.html">TACTIC in Lib</a>
+                </div>
+            </div>
+            <ul class="hidden md:flex space-x-8 text-gray-700 font-medium">
+                <li><a href="index.html#home" class="hover:text-blue-600">Home</a></li>
+                <li><a href="index.html#about" class="hover:text-blue-600">About</a></li>
+                <li><a href="index.html#modules" class="hover:text-blue-600">Modules</a></li>
+                <li><a href="#" class="hover:text-blue-600">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <header class="hero-gradient bg-cover bg-center h-[300px] flex items-center justify-center text-center text-white">
+        <div class="px-4">
+            <h1 class="text-4xl md:text-5xl font-extrabold mb-4 uppercase tracking-tight">Module 3: No-Code RAG &
+                Chatbots</h1>
+            <p class="text-lg md:text-xl max-w-2xl mx-auto text-blue-100">
+                Building grounded, practical chatbot experiences for library services without coding.
+            </p>
+        </div>
+    </header>
+
+    <main class="max-w-4xl mx-auto py-12 px-4">
+        <div class="space-y-8">
+
+            <!-- Question 1 -->
+            <div class="bg-white rounded-xl shadow-sm border border-gray-100 overflow-hidden">
+                <div class="bg-blue-600 px-6 py-4">
+                    <h3 class="text-white font-bold text-lg">What is RAG?</h3>
+                </div>
+                <div class="p-6 text-gray-700 leading-relaxed space-y-4">
+                    <p><strong>RAG</strong> stands for <strong>Retrieval-Augmented Generation</strong>. Instead of
+                        asking a chatbot to answer from memory alone, you first let it retrieve trusted source material
+                        and then generate a response based on that material.</p>
+                    <div class="bg-blue-50 p-4 rounded-lg border-l-4 border-blue-500">
+                        <p>In library terms, this is like giving the chatbot a <strong>"Library Handbook"</strong>
+                            before it answers. That is much better than letting it guess policies, hours, services, or
+                            collections from general internet knowledge.</p>
+                    </div>
+                    <p>The benefit is simple: answers become more <strong>relevant, grounded, and consistent</strong>
+                        because the system is using your local documents as reference material.</p>
+                </div>
+            </div>
+
+            <!-- Question 2 -->
+            <div class="bg-white rounded-xl shadow-sm border border-gray-100 overflow-hidden">
+                <div class="bg-blue-600 px-6 py-4">
+                    <h3 class="text-white font-bold text-lg">NotebookLM for Reference</h3>
+                </div>
+                <div class="p-6 text-gray-700 leading-relaxed space-y-4">
+                    <p><strong>NotebookLM</strong> is a useful no-code option for creating a focused
+                        <strong>"Research Room"</strong> around a specific library project.
+                    </p>
+                    <ul class="list-disc pl-6 space-y-2">
+                        <li>Upload project documents such as policies, meeting notes, PDFs, grant materials, or
+                            planning reports.</li>
+                        <li>Ask questions only within that source set instead of across the whole web.</li>
+                        <li>Use it to summarize themes, compare documents, or draft project notes with source-aware
+                            responses.</li>
+                    </ul>
+                    <p>For librarians, this makes NotebookLM especially valuable for
+                        <strong>committee work, instruction planning, policy review, and local research support</strong>.
+                    </p>
+                </div>
+            </div>
+
+            <!-- Question 3 -->
+            <div class="bg-white rounded-xl shadow-sm border border-gray-100 overflow-hidden">
+                <div class="bg-blue-600 px-6 py-4">
+                    <h3 class="text-white font-bold text-lg">No-Code RAG Builders</h3>
+                </div>
+                <div class="p-6 text-gray-700 leading-relaxed space-y-4">
+                    <p>Many <strong>"Chat with PDF"</strong> platforms are simplified no-code RAG builders. Their
+                        workflow usually looks like this:</p>
+                    <div class="grid md:grid-cols-3 gap-4">
+                        <div class="bg-gray-50 p-4 rounded-lg border border-gray-200">
+                            <h4 class="font-bold text-blue-800 mb-2">1. Upload</h4>
+                            <p class="text-sm">You add PDFs, DOCX files, webpages, or FAQs that you want the bot to
+                                know.</p>
+                        </div>
+                        <div class="bg-gray-50 p-4 rounded-lg border border-gray-200">
+                            <h4 class="font-bold text-blue-800 mb-2">2. Index</h4>
+                            <p class="text-sm">The system breaks the content into searchable chunks and prepares it for
+                                retrieval.</p>
+                        </div>
+                        <div class="bg-gray-50 p-4 rounded-lg border border-gray-200">
+                            <h4 class="font-bold text-blue-800 mb-2">3. Chat</h4>
+                            <p class="text-sm">When a user asks a question, the tool finds the most relevant passages
+                                and uses them to build an answer.</p>
+                        </div>
+                    </div>
+                    <p>This approach helps a chatbot answer with <strong>document-based context</strong> rather than
+                        only generic language model knowledge.</p>
+                </div>
+            </div>
+
+            <!-- Question 4 -->
+            <div class="bg-white rounded-xl shadow-sm border border-gray-100 overflow-hidden">
+                <div class="bg-blue-600 px-6 py-4">
+                    <h3 class="text-white font-bold text-lg">Persona & Guardrails</h3>
+                </div>
+                <div class="p-6 text-gray-700 leading-relaxed space-y-4">
+                    <p>A good library chatbot is not just informed. It is also <strong>well-behaved</strong>.
+                        <strong>Persona</strong> defines how the bot should speak, and <strong>guardrails</strong>
+                        define what it should and should not do.
+                    </p>
+                    <div class="bg-amber-50 p-4 rounded-lg border-l-4 border-amber-500">
+                        <p class="mb-2"><strong>Examples of useful rules:</strong></p>
+                        <ul class="list-disc pl-6 space-y-2">
+                            <li>"Answer as a helpful academic library assistant."</li>
+                            <li>"Only use the uploaded library sources when discussing policies."</li>
+                            <li>"Do not recommend books we do not own."</li>
+                            <li>"If the answer is unclear, direct the user to contact library staff."</li>
+                        </ul>
+                    </div>
+                    <p>These rules make the bot safer, more aligned with library practice, and more trustworthy for
+                        public-facing use.</p>
+                </div>
+            </div>
+
+            <!-- Question 5 -->
+            <div class="bg-white rounded-xl shadow-sm border border-gray-100 overflow-hidden">
+                <div class="bg-blue-600 px-6 py-4">
+                    <h3 class="text-white font-bold text-lg">Embedded AI</h3>
+                </div>
+                <div class="p-6 text-gray-700 leading-relaxed space-y-4">
+                    <p><strong>Embedded AI</strong> means placing a chatbot directly inside an existing library web
+                        experience, such as a <strong>LibGuide</strong>, subject guide, or library homepage.</p>
+                    <p>Many no-code chatbot services provide a small embed option, so staff can paste a widget or link
+                        into an existing page <strong>without building a custom application from scratch</strong>.</p>
+                    <div class="bg-green-50 p-4 rounded-lg">
+                        <ul class="space-y-3">
+                            <li><strong>For LibGuides:</strong> Add a chatbot to a guide focused on citation help,
+                                databases, or course resources.</li>
+                            <li><strong>For the homepage:</strong> Offer quick help for hours, policies, spaces,
+                                services, and common questions.</li>
+                            <li><strong>For project sites:</strong> Create a targeted assistant for exhibits, digital
+                                collections, or instruction materials.</li>
+                        </ul>
+                    </div>
+                    <p>This makes AI support feel like part of the library’s normal service environment, not a
+                        separate tool users have to discover on their own.</p>
+                </div>
+
+                <div class="pt-8 text-center pb-8">
+                    <a href="index.html#modules"
+                        class="inline-block bg-blue-600 text-white font-bold px-8 py-3 rounded-full hover:bg-blue-700 transition shadow-lg">Back
+                        to Main Page</a>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer class="bg-blue-900 text-white py-12 mt-12">
+        <div class="max-w-7xl mx-auto px-4 text-center">
+            <p class="mb-2 font-bold text-lg uppercase tracking-widest text-blue-200">TACTIC Institute x IMLS</p>
+            <p class="text-blue-300 text-sm">Empowering the future of GLAM institutions through code and no-code AI
+                innovation.</p>
+        </div>
+    </footer>
+</body>
+
+</html>

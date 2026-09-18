@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Module 2: No-Code Data Preparation | TACTIC in Lib</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        .hero-gradient {
+            background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(30, 58, 138, 0.8)), url('https://images.unsplash.com/photo-1507842217343-583bb7270b66?ixlib=rb-1.2.1&auto=format&fit=crop&w=1600&q=80');
+        }
+    </style>
+</head>
+
+<body class="bg-gray-50 font-sans">
+    <nav class="bg-white shadow-md sticky top-0 z-50">
+        <div class="max-w-7xl mx-auto px-4 py-3 flex justify-between items-center">
+            <div class="flex items-center gap-3">
+                <img src="Purdue_library_logo.png" alt="Purdue Libraries Logo" class="h-14 w-auto object-contain">
+                <div class="hidden sm:block h-8 w-px bg-gray-300"></div>
+                <div class="hidden sm:block text-xl font-bold text-blue-900"><a href="index.html">TACTIC in Lib</a></div>
+            </div>
+            <ul class="hidden md:flex space-x-8 text-gray-700 font-medium">
+                <li><a href="index.html#home" class="hover:text-blue-600">Home</a></li>
+                <li><a href="index.html#about" class="hover:text-blue-600">About</a></li>
+                <li><a href="index.html#modules" class="hover:text-blue-600">Modules</a></li>
+                <li><a href="#" class="hover:text-blue-600">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <header class="hero-gradient bg-cover bg-center h-[300px] flex items-center justify-center text-center text-white">
+        <div class="px-4">
+            <h1 class="text-4xl md:text-5xl font-extrabold mb-4 uppercase tracking-tight">Module 2: No-Code Data Preparation</h1>
+            <p class="text-lg md:text-xl max-w-2xl mx-auto text-blue-100">
+                Preparing AI-ready text and Q&A datasets with OpenRefine, without writing code.
+            </p>
+        </div>
+    </header>
+
+    <main class="max-w-4xl mx-auto py-12 px-4">
+        <div class="space-y-8">
+
+            <!-- Question 1 -->
+            <div class="bg-white rounded-xl shadow-sm border border-gray-100 overflow-hidden">
+                <div class="bg-blue-600 px-6 py-4">
+                    <h3 class="text-white font-bold text-lg">Why Data Preparation Matters for AI</h3>
+                </div>
+                <div class="p-6 text-gray-700 leading-relaxed space-y-4">
+                    <p>Before an AI model can classify sentiment, answer questions, or summarize documents, the data must be organized into a clear and consistent structure.</p>
+                    <div class="bg-blue-50 p-4 rounded-lg border-l-4 border-blue-500">
+                        <p>In this module, learners use <strong>OpenRefine</strong> as a no-code environment for inspecting, cleaning, and exporting model-ready datasets.</p>
+                    </div>
+                    <p>The goal is not to build a model yet. The goal is to make the dataset clean enough that a model can use it reliably.</p>
+                </div>
+            </div>
+
+            <!-- Question 2 -->
+            <div class="bg-white rounded-xl shadow-sm border border-gray-100 overflow-hidden">
+                <div class="bg-blue-600 px-6 py-4">
+                    <h3 class="text-white font-bold text-lg">OpenRefine Workflow</h3>
+                </div>
+                <div class="p-6 text-gray-700 leading-relaxed space-y-4">
+                    <p>OpenRefine is useful for showing the full data-preparation workflow visually:</p>
+                    <div class="grid md:grid-cols-4 gap-4">
+                        <div class="bg-gray-50 p-4 rounded-lg border border-gray-200">
+                            <h4 class="font-bold text-blue-800 mb-2">1. Import</h4>
+                            <p class="text-sm">Load a CSV file and confirm that columns are parsed correctly.</p>
+                        </div>
+                        <div class="bg-gray-50 p-4 rounded-lg border border-gray-200">
+                            <h4 class="font-bold text-blue-800 mb-2">2. Inspect</h4>
+                            <p class="text-sm">Use facets to understand labels, missing values, and data patterns.</p>
+                        </div>
+                        <div class="bg-gray-50 p-4 rounded-lg border border-gray-200">
+                            <h4 class="font-bold text-blue-800 mb-2">3. Clean</h4>
+                            <p class="text-sm">Normalize text, trim whitespace, and correct inconsistent values.</p>
+                        </div>
+                        <div class="bg-gray-50 p-4 rounded-lg border border-gray-200">
+                            <h4 class="font-bold text-blue-800 mb-2">4. Export</h4>
+                            <p class="text-sm">Save the cleaned dataset as CSV or JSON for later AI workflows.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Question 3 -->
+            <div class="bg-white rounded-xl shadow-sm border border-gray-100 overflow-hidden">
+                <div class="bg-blue-600 px-6 py-4">
+                    <h3 class="text-white font-bold text-lg">Task 1: Sentiment Analysis Data Prep</h3>
+                </div>
+                <div class="p-6 text-gray-700 leading-relaxed space-y-4">
+                    <p>A sentiment dataset usually contains a text column and a sentiment label such as <strong>positive</strong>, <strong>negative</strong>, or <strong>neutral</strong>.</p>
+                    <div class="bg-orange-50 p-4 rounded-lg border-l-4 border-orange-500">
+                        <p class="mb-2"><strong>Recommended OpenRefine demo:</strong></p>
+                        <ol class="list-decimal pl-6 space-y-2">
+                            <li>Open the <strong>text</strong> column.</li>
+                            <li>Select <strong>Edit cells → Transform</strong>.</li>
+                            <li>Apply lowercase and whitespace cleanup using GREL.</li>
+                        </ol>
+                    </div>
+                    <pre class="bg-gray-900 text-gray-100 text-sm rounded-lg p-4 overflow-x-auto"><code>value.toLowercase().trim()</code></pre>
+                    <p>This demonstrates how no-code tools can reproduce common NLP preprocessing steps, such as lowercasing and normalization, in a transparent way.</p>
+                </div>
+            </div>
+
+            <!-- Question 4 -->
+            <div class="bg-white rounded-xl shadow-sm border border-gray-100 overflow-hidden">
+                <div class="bg-blue-600 px-6 py-4">
+                    <h3 class="text-white font-bold text-lg">Facets and Clustering</h3>
+                </div>
+                <div class="p-6 text-gray-700 leading-relaxed space-y-4">
+                    <p><strong>Facets</strong> help learners inspect the dataset. For example, applying a text facet to the <strong>sentiment</strong> column shows how many positive, negative, and neutral examples are present.</p>
+                    <p><strong>Cluster and edit</strong> helps learners fix inconsistent values, such as different spellings, capitalization, or accidental spaces.</p>
+                    <div class="grid md:grid-cols-2 gap-6">
+                        <div class="bg-blue-50 p-4 rounded-lg border border-blue-100">
+                            <h4 class="font-bold text-blue-800 mb-2">Facet = Find Problems</h4>
+                            <p class="text-sm">Use it to check label distribution, detect missing values, and spot unusual categories.</p>
+                        </div>
+                        <div class="bg-green-50 p-4 rounded-lg border border-green-100">
+                            <h4 class="font-bold text-green-800 mb-2">Cluster = Fix Problems</h4>
+                            <p class="text-sm">Use it to merge similar values such as “Positive,” “positive,” and “positve.”</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Question 5 -->
+            <div class="bg-white rounded-xl shadow-sm border border-gray-100 overflow-hidden">
+                <div class="bg-blue-600 px-6 py-4">
+                    <h3 class="text-white font-bold text-lg">Task 2: Question Answering Data Prep</h3>
+                </div>
+                <div class="p-6 text-gray-700 leading-relaxed space-y-4">
+                    <p>A question answering dataset usually needs at least three columns: <strong>question</strong>, <strong>context</strong>, and <strong>answer</strong>.</p>
+                    <div class="bg-amber-50 p-4 rounded-lg border-l-4 border-amber-500">
+                        <p><strong>Important:</strong> QA cleaning should be careful. If the answer text changes too much, the answer may no longer match the exact span inside the context.</p>
+                    </div>
+                    <p>In OpenRefine, learners can still normalize quotation marks, remove extra spaces, and create helper columns for a SQuAD-style format.</p>
+                    <pre class="bg-gray-900 text-gray-100 text-sm rounded-lg p-4 overflow-x-auto"><code>value.replace("“", "\"").replace("”", "\"").trim()</code></pre>
+                    <p>This shows why different AI tasks require different preprocessing decisions.</p>
+                </div>
+            </div>
+
+            <!-- Question 6 -->
+            <div class="bg-white rounded-xl shadow-sm border border-gray-100 overflow-hidden">
+                <div class="bg-blue-600 px-6 py-4">
+                    <h3 class="text-white font-bold text-lg">What Learners Should Be Able to Do</h3>
+                </div>
+                <div class="p-6 text-gray-700 leading-relaxed space-y-4">
+                    <ul class="list-disc pl-6 space-y-2">
+                        <li>Import a CSV dataset into OpenRefine.</li>
+                        <li>Confirm that columns are parsed correctly before creating a project.</li>
+                        <li>Use GREL transformations for basic text normalization.</li>
+                        <li>Use facets to inspect label distribution and detect problems.</li>
+                        <li>Use clustering to standardize inconsistent values.</li>
+                        <li>Export a cleaned dataset for later AI model development.</li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Video Tutorials -->
+            <div class="bg-white rounded-xl shadow-sm border border-gray-100 overflow-hidden">
+                <div class="bg-blue-600 px-6 py-4">
+                    <h3 class="text-white font-bold text-lg">Video Tutorials</h3>
+                </div>
+                <div class="p-6">
+                    <div class="grid gap-6">
+                        <div class="flex flex-col md:flex-row md:items-start gap-4 p-4 bg-blue-50/50 rounded-lg border border-blue-100">
+                            <a href="#" target="_blank" class="flex-shrink-0 flex items-center px-3 py-1.5 bg-blue-50 text-blue-700 text-xs rounded-md hover:bg-blue-100 transition border border-blue-100 h-fit">
+                                <span class="mr-1.5">🎬</span> OpenRefine - Import & Preview
+                            </a>
+                            <p class="text-sm text-gray-700 leading-relaxed">
+                                Learn how to import a CSV file, check parsing options, and create an OpenRefine project.
+                            </p>
+                        </div>
+
+                        <div class="flex flex-col md:flex-row md:items-start gap-4 p-4 bg-green-50/50 rounded-lg border border-green-100">
+                            <a href="#" target="_blank" class="flex-shrink-0 flex items-center px-3 py-1.5 bg-green-50 text-green-700 text-xs rounded-md hover:bg-green-100 transition border border-green-100 h-fit">
+                                <span class="mr-1.5">🎬</span> OpenRefine - Text Cleaning
+                            </a>
+                            <p class="text-sm text-gray-700 leading-relaxed">
+                                Demonstrates lowercase conversion, whitespace cleanup, quotation normalization, facets, and clustering.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="pt-8 text-center">
+                <a href="index.html#modules" class="inline-block bg-blue-600 text-white font-bold px-8 py-3 rounded-full hover:bg-blue-700 transition shadow-lg">Back to Main Page</a>
+            </div>
+        </div>
+    </main>
+
+    <footer class="bg-blue-900 text-white py-12 mt-12">
+        <div class="max-w-7xl mx-auto px-4 text-center">
+            <p class="mb-2 font-bold text-lg uppercase tracking-widest text-blue-200">TACTIC Institute x IMLS</p>
+            <p class="text-blue-300 text-sm">Empowering the future of GLAM institutions through code and no-code AI innovation.</p>
+        </div>
+    </footer>
+</body>
+
+</html>
