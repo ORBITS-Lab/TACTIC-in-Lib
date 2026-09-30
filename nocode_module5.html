@@ -35,7 +35,7 @@
         <div class="px-4">
             <h1 class="text-4xl md:text-5xl font-extrabold mb-4 uppercase tracking-tight">Module 5: No-Code Model Training & Quality Control</h1>
             <p class="text-lg md:text-xl max-w-3xl mx-auto text-blue-100">
-                Automated machine learning, evaluation metrics, cloud deployment, and AI governance for library operations.
+                LLM Fine-Tuning with Llama Factory, evaluation metrics, cloud deployment, and AI governance for library operations.
             </p>
         </div>
     </header>
@@ -64,7 +64,7 @@
                         </div>
                         <div>
                             <p class="text-gray-500 font-medium">Learning Pathway:</p>
-                            <p class="font-semibold text-blue-900">No-code (Operational / Management Focus)</p>
+                            <p class="font-semibold text-blue-900">No-code / Low-code (Operational / Management Focus)</p>
                         </div>
                         <div>
                             <p class="text-gray-500 font-medium">Estimated Length:</p>
@@ -72,7 +72,7 @@
                         </div>
                         <div>
                             <p class="text-gray-500 font-medium">Primary Tools:</p>
-                            <p class="font-semibold text-blue-900">Hugging Face AutoTrain, Vertex AI, Amazon Q</p>
+                            <p class="font-semibold text-blue-900"><a href="https://github.com/hiyouga/LlamaFactory" target="_blank" class="text-blue-600 underline hover:text-blue-800">Llama Factory</a>, Google Colab, OpenAI API</p>
                         </div>
                     </div>
                 </div>
@@ -84,29 +84,29 @@
                     <h3 class="text-white font-bold text-lg">Why No-Code Model Training & Quality Control?</h3>
                 </div>
                 <div class="p-6 text-gray-700 leading-relaxed space-y-4">
-                    <p>Once library datasets are cleaned (Module 2) and annotated (Module 4), librarians can move beyond general-purpose commercial chatbots to train <strong>custom, domain-specific AI models</strong>. Modern Automated Machine Learning (AutoML) platforms allow library staff to build, evaluate, deploy, and monitor custom classifiers without writing code.</p>
+                    <p>Once library datasets are cleaned (Module 2) and annotated (Module 4), librarians can move beyond general-purpose commercial chatbots to fine-tune <strong>custom, domain-specific Large Language Models (LLMs)</strong>. Using no-code / low-code frameworks like <a href="https://github.com/hiyouga/LlamaFactory" target="_blank" class="text-blue-600 underline font-semibold hover:text-blue-800">Llama Factory</a>, library staff can fine-tune LLMs, evaluate performance, deploy, and monitor custom models without complex coding.</p>
                     <div class="bg-blue-50 p-4 rounded-lg border-l-4 border-blue-500">
-                        <p><strong>Module Goal:</strong> Learners practice training a custom "Library Ticket Classifier" using <strong>Hugging Face AutoTrain</strong>, evaluating model performance with quantitative metrics and a <strong>Confusion Matrix</strong>, testing deployed endpoints on <strong>Vertex AI / Hugging Face</strong>, and exploring AI governance and model drift monitoring.</p>
+                        <p><strong>Module Goal:</strong> Learners practice fine-tuning a custom <strong>"Library Ticket Classifier"</strong> LLM model using <a href="https://github.com/hiyouga/LlamaFactory" target="_blank" class="text-blue-600 underline font-semibold hover:text-blue-800">Llama Factory</a>, evaluating model performance with quantitative metrics and a <strong>Confusion Matrix</strong>, calling LLM models via the <strong>OpenAI API</strong> for seamless code integration, and exploring AI governance and model drift monitoring.</p>
                     </div>
                     <p>This module provides academic librarians and library managers with the strategic and operational skills needed to oversee AI training pipelines, interpret quality metrics, and enforce ongoing AI governance in library systems.</p>
                 </div>
             </div>
 
-            <!-- The No-Code AutoML & Quality Control Workflow -->
+            <!-- The No-Code LLM Fine-Tuning & Quality Control Workflow -->
             <div class="bg-white rounded-xl shadow-sm border border-gray-100 overflow-hidden">
                 <div class="bg-blue-600 px-6 py-4">
-                    <h3 class="text-white font-bold text-lg">The AutoML & Quality Control Workflow</h3>
+                    <h3 class="text-white font-bold text-lg">The LLM Fine-Tuning & Quality Control Workflow</h3>
                 </div>
                 <div class="p-6 text-gray-700 leading-relaxed space-y-4">
                     <p>This module follows a 6-step operational lifecycle for non-coding library managers and specialists:</p>
                     <div class="grid md:grid-cols-3 gap-4">
                         <div class="bg-gray-50 p-4 rounded-lg border border-gray-200">
                             <h4 class="font-bold text-blue-800 mb-2">1. Upload Data</h4>
-                            <p class="text-sm">Import clean, labeled dataset (e.g., 200 labeled Library Support Tickets) into the AutoML platform.</p>
+                            <p class="text-sm">Import clean, labeled dataset (e.g., 200 labeled Library Support Tickets) into the training environment.</p>
                         </div>
                         <div class="bg-gray-50 p-4 rounded-lg border border-gray-200">
-                            <h4 class="font-bold text-blue-800 mb-2">2. Auto-Train</h4>
-                            <p class="text-sm">Configure task parameters; the platform automatically tests, tunes, and selects the optimal algorithms.</p>
+                            <h4 class="font-bold text-blue-800 mb-2">2. Fine-Tune LLM</h4>
+                            <p class="text-sm">Configure training parameters in <a href="https://github.com/hiyouga/LlamaFactory" target="_blank" class="text-blue-600 underline hover:text-blue-800">Llama Factory</a> to fine-tune foundation models (e.g. LLaMA, Qwen) for library tasks.</p>
                         </div>
                         <div class="bg-gray-50 p-4 rounded-lg border border-gray-200">
                             <h4 class="font-bold text-blue-800 mb-2">3. Evaluate Metrics</h4>
@@ -117,8 +117,8 @@
                             <p class="text-sm">Inspect the Confusion Matrix to identify where the AI gets confused between categories.</p>
                         </div>
                         <div class="bg-gray-50 p-4 rounded-lg border border-gray-200">
-                            <h4 class="font-bold text-blue-800 mb-2">5. Deploy Endpoint</h4>
-                            <p class="text-sm">Publish the model endpoint to Vertex AI or Hugging Face Spaces for real-time testing and inference.</p>
+                            <h4 class="font-bold text-blue-800 mb-2">5. OpenAI API Integration</h4>
+                            <p class="text-sm">Call fine-tuned or hosted LLM models via OpenAI API endpoints for interactive testing and code integration.</p>
                         </div>
                         <div class="bg-gray-50 p-4 rounded-lg border border-gray-200">
                             <h4 class="font-bold text-blue-800 mb-2">6. Govern & Monitor</h4>
@@ -128,28 +128,65 @@
                 </div>
             </div>
 
-            <!-- Task 1: Auto-Training with Hugging Face AutoTrain -->
+            <!-- Task 1: Fine-Tuning LLMs with Llama Factory -->
             <div class="bg-white rounded-xl shadow-sm border border-gray-100 overflow-hidden">
                 <div class="bg-blue-600 px-6 py-4">
-                    <h3 class="text-white font-bold text-lg">Task 1: Auto-Training a Text Classifier with Hugging Face AutoTrain</h3>
+                    <h3 class="text-white font-bold text-lg">Task 1: Fine-Tuning a Library Ticket Classifier LLM with Llama Factory</h3>
                 </div>
                 <div class="p-6 text-gray-700 leading-relaxed space-y-4">
-                    <p><strong>Automated Machine Learning (AutoML)</strong> automates the complex process of model architecture selection, hyperparameter tuning, and validation. In this task, learners use <strong>Hugging Face AutoTrain</strong> to build a custom text classification model without writing a single line of code.</p>
+                    <p><strong>LLM Fine-Tuning</strong> adapts open-source foundation language models to domain-specific library requirements (such as classifying patron support tickets). In this task, learners use <a href="https://github.com/hiyouga/LlamaFactory" target="_blank" class="text-blue-600 underline font-semibold hover:text-blue-800">Llama Factory</a>—a unified, easy-to-use framework for fine-tuning LLMs—along with Google Colab to train a custom Library Ticket Classifier without writing complex training code.</p>
+
+                    <!-- Resource & Tutorial Links Box -->
+                    <div class="bg-gradient-to-r from-blue-50 to-indigo-50 p-5 rounded-lg border border-blue-200 space-y-3">
+                        <h4 class="font-bold text-blue-900 text-md flex items-center gap-2">
+                            <span>🎬</span> Video Tutorial, Colab Notebook & Code Files
+                        </h4>
+                        <div class="grid sm:grid-cols-2 gap-3 text-sm">
+                            <a href="https://drive.google.com/file/d/11LO6dtcfKaodYU4-cqDDvvNM9bIgYKxk/view?usp=sharing" target="_blank" class="flex items-center gap-2 p-3 bg-white rounded-lg border border-blue-200 hover:border-blue-400 hover:shadow-sm transition text-blue-900 font-medium">
+                                <span class="text-base">🎥</span>
+                                <div>
+                                    <div class="font-bold text-blue-700">Watch Video Tutorial</div>
+                                    <div class="text-xs text-gray-500">Llama Factory Fine-Tuning Walkthrough</div>
+                                </div>
+                            </a>
+                            <a href="https://colab.research.google.com/drive/13leLdL27vuNZy9RSAmFUT4S2gpINaUrn?usp=sharing" target="_blank" class="flex items-center gap-2 p-3 bg-white rounded-lg border border-yellow-200 hover:border-yellow-400 hover:shadow-sm transition text-yellow-900 font-medium">
+                                <span class="text-base">⚡</span>
+                                <div>
+                                    <div class="font-bold text-yellow-800">Google Colab Notebook</div>
+                                    <div class="text-xs text-gray-500">Interactive Fine-Tuning Environment</div>
+                                </div>
+                            </a>
+                            <a href="https://drive.google.com/file/d/1EnFgPS71pO7QQ5HwzWDp-gUDmwDCuGCI/view?usp=sharing" target="_blank" class="flex items-center gap-2 p-3 bg-white rounded-lg border border-gray-200 hover:border-gray-400 hover:shadow-sm transition text-gray-800 font-medium">
+                                <span class="text-base">📁</span>
+                                <div>
+                                    <div class="font-bold text-gray-700">Notebook Code File 1</div>
+                                    <div class="text-xs text-gray-500">Required Code Asset (Google Drive)</div>
+                                </div>
+                            </a>
+                            <a href="https://drive.google.com/file/d/11pNC9hBzFPlEWQVuqt6iBXiyzpDYTYth/view?usp=share_link" target="_blank" class="flex items-center gap-2 p-3 bg-white rounded-lg border border-gray-200 hover:border-gray-400 hover:shadow-sm transition text-gray-800 font-medium">
+                                <span class="text-base">📁</span>
+                                <div>
+                                    <div class="font-bold text-gray-700">Notebook Code File 2</div>
+                                    <div class="text-xs text-gray-500">Required Code Asset (Google Drive)</div>
+                                </div>
+                            </a>
+                        </div>
+                    </div>
 
                     <div class="grid md:grid-cols-2 gap-4">
                         <div class="bg-green-50 p-4 rounded-lg border-l-4 border-green-500">
-                            <h4 class="font-bold text-green-900 mb-2">Hands-on Auto-Training Steps</h4>
+                            <h4 class="font-bold text-green-900 mb-2">Hands-on Fine-Tuning Steps</h4>
                             <ol class="list-decimal pl-5 text-sm space-y-1">
-                                <li>Log into Hugging Face AutoTrain and create a new <strong>Text Classification</strong> project.</li>
-                                <li>Upload the labeled CSV dataset of <strong>200 Library Support Tickets</strong>.</li>
-                                <li>Map the columns: set <code>text</code> as input and <code>target</code> (category label) as target.</li>
-                                <li>Click <strong>Start AutoTrain</strong> to launch automatic candidate training.</li>
-                                <li>Review candidate model rankings based on validation scores.</li>
+                                <li>Open the <a href="https://colab.research.google.com/drive/13leLdL27vuNZy9RSAmFUT4S2gpINaUrn?usp=sharing" target="_blank" class="text-blue-600 underline font-semibold">Google Colab Notebook</a> and load the required code files (<a href="https://drive.google.com/file/d/1EnFgPS71pO7QQ5HwzWDp-gUDmwDCuGCI/view?usp=sharing" target="_blank" class="text-blue-600 underline">File 1</a> & <a href="https://drive.google.com/file/d/11pNC9hBzFPlEWQVuqt6iBXiyzpDYTYth/view?usp=share_link" target="_blank" class="text-blue-600 underline">File 2</a>).</li>
+                                <li>Launch the <a href="https://github.com/hiyouga/LlamaFactory" target="_blank" class="text-blue-600 underline font-semibold">Llama Factory</a> interface.</li>
+                                <li>Select a base foundation model (e.g., LLaMA, Qwen, or Mistral).</li>
+                                <li>Configure fine-tuning parameters (LoRA / QLoRA rank, learning rate, and epochs).</li>
+                                <li>Start fine-tuning and evaluate training loss and validation outputs.</li>
                             </ol>
                         </div>
                         <div class="bg-blue-50 p-4 rounded-lg border-l-4 border-blue-500">
                             <h4 class="font-bold text-blue-900 mb-2">Teaching Point for Librarians</h4>
-                            <p class="text-sm">AutoML allows librarians to focus on <em>domain data quality</em> and <em>task definition</em> rather than hyperparameter tuning. The platform tests multiple transformer architectures (e.g., BERT, RoBERTa, DistilBERT) automatically.</p>
+                            <p class="text-sm">Fine-tuning with <a href="https://github.com/hiyouga/LlamaFactory" target="_blank" class="text-blue-600 underline font-semibold hover:text-blue-800">Llama Factory</a> allows librarians to focus on <em>domain data quality</em> and <em>instruction tuning</em> without needing deep PyTorch programming skills. The framework supports efficient LoRA / QLoRA fine-tuning for resource-constrained environments.</p>
                         </div>
                     </div>
 
@@ -193,7 +230,7 @@
                     <h3 class="text-white font-bold text-lg">Task 2: Understanding Evaluation Metrics & Dashboard Analysis</h3>
                 </div>
                 <div class="p-6 text-gray-700 leading-relaxed space-y-4">
-                    <p>Evaluating AI models requires moving beyond simple qualitative impressions ("it looks right") to <strong>hard quantitative data</strong>. AutoTrain and Vertex AI present dashboards with core evaluation metrics.</p>
+                    <p>Evaluating AI models requires moving beyond simple qualitative impressions ("it looks right") to <strong>hard quantitative data</strong>. Training dashboards in <a href="https://github.com/hiyouga/LlamaFactory" target="_blank" class="text-blue-600 underline hover:text-blue-800">Llama Factory</a> and cloud platforms present core evaluation metrics.</p>
 
                     <div class="grid md:grid-cols-2 gap-4">
                         <div class="bg-purple-50 p-4 rounded-lg border-l-4 border-purple-500">
@@ -265,32 +302,32 @@
                 </div>
             </div>
 
-            <!-- Task 3: Vertex AI & Hugging Face Endpoint Deployment -->
+            <!-- Task 3: OpenAI API Integration & Interactive Testing -->
             <div class="bg-white rounded-xl shadow-sm border border-gray-100 overflow-hidden">
                 <div class="bg-blue-600 px-6 py-4">
-                    <h3 class="text-white font-bold text-lg">Task 3: Model Deployment & Interactive Testing</h3>
+                    <h3 class="text-white font-bold text-lg">Task 3: OpenAI API Integration & Code Integration</h3>
                 </div>
                 <div class="p-6 text-gray-700 leading-relaxed space-y-4">
-                    <p>Once model training and evaluation are complete, the model must be <strong>deployed to an endpoint</strong> so library staff and automated workflows can query it in real time.</p>
+                    <p>Once LLM fine-tuning and evaluation are complete, library developers and specialists can call LLM models via the <strong>OpenAI API</strong>, making it straightforward to perform <strong>code integration</strong> into library discovery tools, chat assistants, and automated workflows.</p>
 
                     <div class="grid md:grid-cols-2 gap-4">
                         <div class="bg-blue-50 p-4 rounded-lg border-l-4 border-blue-500">
                             <h4 class="font-bold text-blue-900 mb-2">Hugging Face Spaces & Inference API</h4>
-                            <p class="text-sm">AutoTrain models can be deployed directly to a Hugging Face Space or Inference Endpoint with one click, providing an interactive web widget to test ticket classification.</p>
+                            <p class="text-sm">Fine-tuned models from <a href="https://github.com/hiyouga/LlamaFactory" target="_blank" class="text-blue-600 underline hover:text-blue-800">Llama Factory</a> can be deployed directly to a Hugging Face Space or Inference Endpoint with one click, providing an interactive web widget to test ticket classification.</p>
                         </div>
                         <div class="bg-purple-50 p-4 rounded-lg border-l-4 border-purple-500">
-                            <h4 class="font-bold text-purple-900 mb-2">Google Cloud Vertex AI</h4>
-                            <p class="text-sm">For enterprise library IT environments, models deployed on Vertex AI offer scalable API endpoints, low latency, role-based access control, and SLA monitoring.</p>
+                            <h4 class="font-bold text-purple-900 mb-2">OpenAI API & Code Integration</h4>
+                            <p class="text-sm">Using standard OpenAI API calls, library applications can invoke fine-tuned or hosted LLMs directly in code, facilitating seamless integration with library discovery and service systems.</p>
                         </div>
                     </div>
 
                     <div class="bg-gray-50 p-4 rounded-lg border border-gray-200">
-                        <h4 class="font-bold text-gray-900 mb-2">Interactive Endpoint Testing Demonstration</h4>
+                        <h4 class="font-bold text-gray-900 mb-2">Interactive API Call & Testing Demonstration</h4>
                         <ol class="list-decimal pl-5 text-sm space-y-1">
-                            <li>Open the deployed model endpoint interface.</li>
-                            <li>Enter a new unlabelled ticket: <em>"The proxy popup says invalid password when accessing JSTOR off-campus."</em></li>
-                            <li>Click <strong>Predict Class</strong>.</li>
-                            <li>Observe the output confidence scores:
+                            <li>Set up the OpenAI API key or custom endpoint base URL in your environment.</li>
+                            <li>Send a test prompt / ticket: <em>"The proxy popup says invalid password when accessing JSTOR off-campus."</em></li>
+                            <li>Call the model via standard API request (`openai.chat.completions.create`).</li>
+                            <li>Observe the returned model prediction and confidence breakdown:
                                 <ul class="list-disc pl-5 mt-1 font-mono text-xs">
                                     <li>Technical Issue: <strong class="text-green-700">92.4%</strong></li>
                                     <li>Account Inquiry: 6.1%</li>
@@ -355,18 +392,19 @@
                 <div class="p-6 text-gray-700 leading-relaxed space-y-4">
                     <div class="grid md:grid-cols-2 gap-4">
                         <div class="bg-gray-50 p-4 rounded-lg border border-gray-200">
-                            <h4 class="font-bold text-blue-900 mb-2">Data Source</h4>
-                            <p class="text-sm mb-2">A curated dataset of <strong>200 "Library Support Tickets"</strong> evenly distributed across 3 operational categories:</p>
+                            <h4 class="font-bold text-blue-900 mb-2">Data Source & Notebook Files</h4>
+                            <p class="text-sm mb-2">Curated datasets, fine-tuning scripts, and interactive notebook assets:</p>
                             <ul class="list-disc pl-5 text-xs text-gray-600 space-y-1">
-                                <li><strong>Technical Issue:</strong> Proxy errors, e-resource access, website glitches.</li>
-                                <li><strong>Account Inquiry:</strong> Fines, borrowing limits, card renewals.</li>
-                                <li><strong>Reference Question:</strong> Research help, citation assistance, database guidance.</li>
+                                <li><strong>Colab Fine-Tuning Notebook:</strong> <a href="https://colab.research.google.com/drive/13leLdL27vuNZy9RSAmFUT4S2gpINaUrn?usp=sharing" target="_blank" class="text-blue-600 underline font-semibold">Open in Google Colab</a></li>
+                                <li><strong>Notebook Code File 1:</strong> <a href="https://drive.google.com/file/d/1EnFgPS71pO7QQ5HwzWDp-gUDmwDCuGCI/view?usp=sharing" target="_blank" class="text-blue-600 underline font-semibold">Google Drive Link</a></li>
+                                <li><strong>Notebook Code File 2:</strong> <a href="https://drive.google.com/file/d/11pNC9hBzFPlEWQVuqt6iBXiyzpDYTYth/view?usp=share_link" target="_blank" class="text-blue-600 underline font-semibold">Google Drive Link</a></li>
+                                <li><strong>Fine-Tuning Framework:</strong> <a href="https://github.com/hiyouga/LlamaFactory" target="_blank" class="text-blue-600 underline font-semibold">Llama Factory GitHub</a></li>
                             </ul>
                         </div>
                         <div class="bg-gray-50 p-4 rounded-lg border border-gray-200">
                             <h4 class="font-bold text-blue-900 mb-2">Expected Learner Outputs</h4>
                             <ul class="list-disc pl-5 text-sm space-y-2 text-gray-700">
-                                <li><strong>Deployed Model Endpoint:</strong> A functioning text classifier hosted on Hugging Face or Vertex AI.</li>
+                                <li><strong>Fine-Tuned Model & API Integration:</strong> A custom LLM fine-tuned via Llama Factory, accessible via OpenAI API / Hugging Face endpoints for code integration.</li>
                                 <li><strong>Model Evaluation Report:</strong> A concise document summarizing accuracy, precision/recall trade-offs, and confusion matrix insights.</li>
                             </ul>
                         </div>
@@ -382,8 +420,8 @@
                 <div class="p-6 text-gray-700 leading-relaxed space-y-4">
                     <div class="grid md:grid-cols-2 gap-6">
                         <div class="bg-blue-50 p-4 rounded-lg border border-blue-100">
-                            <h4 class="font-bold text-blue-800 mb-2">AutoML Training</h4>
-                            <p class="text-sm">Configuring and running code-free model training pipelines on Hugging Face AutoTrain and Vertex AI.</p>
+                            <h4 class="font-bold text-blue-800 mb-2">LLM Fine-Tuning</h4>
+                            <p class="text-sm">Configuring and running LLM fine-tuning pipelines using <a href="https://github.com/hiyouga/LlamaFactory" target="_blank" class="text-blue-600 underline hover:text-blue-800">Llama Factory</a> and Google Colab.</p>
                         </div>
                         <div class="bg-green-50 p-4 rounded-lg border border-green-100">
                             <h4 class="font-bold text-green-800 mb-2">Quantitative Metric Analysis</h4>
@@ -422,15 +460,26 @@
                     <h3 class="text-white font-bold text-lg">Video Tutorials</h3>
                 </div>
                 <div class="p-6">
-                    <p class="text-sm text-gray-600 mb-6">Replace each <strong>YouTube link placeholder</strong> with the final video URL after uploading.</p>
                     <div class="grid gap-6">
                         <div class="flex flex-col md:flex-row md:items-start gap-4 p-4 bg-blue-50/50 rounded-lg border border-blue-100">
-                            <a href="https://www.youtube.com/watch?v=R1ozTMrujOE" target="_blank" class="flex-shrink-0 flex items-center px-3 py-1.5 bg-blue-50 text-blue-700 text-xs rounded-md hover:bg-blue-100 transition border border-blue-100 h-fit">
-                                <span class="mr-1.5">🎬</span> Video 1: Hugging Face AutoTrain
+                            <a href="https://drive.google.com/file/d/11LO6dtcfKaodYU4-cqDDvvNM9bIgYKxk/view?usp=sharing" target="_blank" class="flex-shrink-0 flex items-center px-4 py-2 bg-blue-600 text-white font-semibold text-xs rounded-md hover:bg-blue-700 transition shadow-sm h-fit">
+                                <span class="mr-1.5">🎬</span> Watch Video Tutorial
                             </a>
-                            <p class="text-sm text-gray-700 leading-relaxed">
-                                Demonstrates how to set up an AutoTrain project, upload labeled library support tickets, configure parameters, and train a text classifier without code.
-                            </p>
+                            <div class="space-y-2 text-sm text-gray-700 leading-relaxed">
+                                <h4 class="font-bold text-blue-900">LLM Fine-Tuning with Llama Factory Tutorial</h4>
+                                <p>Detailed video walkthrough explaining how to use <a href="https://github.com/hiyouga/LlamaFactory" target="_blank" class="text-blue-600 underline font-medium">Llama Factory</a> to fine-tune Large Language Models (LLMs) on custom library data in Google Colab.</p>
+                                <div class="pt-2 flex flex-wrap gap-2 text-xs">
+                                    <a href="https://colab.research.google.com/drive/13leLdL27vuNZy9RSAmFUT4S2gpINaUrn?usp=sharing" target="_blank" class="inline-flex items-center px-3 py-1 bg-yellow-100 text-yellow-800 rounded font-medium hover:bg-yellow-200 transition border border-yellow-300">
+                                        ⚡ Open Colab Notebook
+                                    </a>
+                                    <a href="https://drive.google.com/file/d/1EnFgPS71pO7QQ5HwzWDp-gUDmwDCuGCI/view?usp=sharing" target="_blank" class="inline-flex items-center px-3 py-1 bg-gray-100 text-gray-800 rounded font-medium hover:bg-gray-200 transition border border-gray-300">
+                                        📁 Notebook Code File 1
+                                    </a>
+                                    <a href="https://drive.google.com/file/d/11pNC9hBzFPlEWQVuqt6iBXiyzpDYTYth/view?usp=share_link" target="_blank" class="inline-flex items-center px-3 py-1 bg-gray-100 text-gray-800 rounded font-medium hover:bg-gray-200 transition border border-gray-300">
+                                        📁 Notebook Code File 2
+                                    </a>
+                                </div>
+                            </div>
                         </div>
 
                         <div class="flex flex-col md:flex-row md:items-start gap-4 p-4 bg-green-50/50 rounded-lg border border-green-100">
@@ -447,7 +496,7 @@
                                 <span class="mr-1.5">🎬</span> Video 3: Model Deployment & Governance
                             </a>
                             <p class="text-sm text-gray-700 leading-relaxed">
-                                Walks through deploying models to Vertex AI / Hugging Face endpoints, conducting real-time inference tests, and monitoring model drift in library operations.
+                                Walks through calling LLM models via OpenAI API, conducting real-time inference tests, and integrating API calls into library application code.
                             </p>
                         </div>
                     </div>
@@ -461,11 +510,11 @@
                 </div>
                 <div class="p-6 text-gray-700 leading-relaxed space-y-4">
                     <ul class="list-disc pl-6 space-y-2">
-                        <li>Explain the core principles of Automated Machine Learning (AutoML) and how platforms select models.</li>
-                        <li>Upload labeled datasets to Hugging Face AutoTrain and execute code-free text classifier training.</li>
+                        <li>Explain the core principles of LLM fine-tuning and how instruction-tuning adapts foundation models.</li>
+                        <li>Fine-tune custom LLM models using <a href="https://github.com/hiyouga/LlamaFactory" target="_blank" class="text-blue-600 underline font-medium">Llama Factory</a> and Google Colab.</li>
                         <li>Evaluate machine learning models using quantitative metrics: Accuracy, Precision, Recall, and F1-Score.</li>
                         <li>Analyze a Confusion Matrix to pinpoint specific misclassification patterns in library data.</li>
-                        <li>Deploy trained models to cloud endpoints (Vertex AI or Hugging Face) and test live inference queries.</li>
+                        <li>Call fine-tuned or hosted LLM models via OpenAI API endpoints and execute live code integration queries.</li>
                         <li>Formulate an AI governance checklist to monitor model drift, prevent algorithmic bias, and protect patron privacy.</li>
                     </ul>
                 </div>
