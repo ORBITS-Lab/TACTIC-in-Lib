@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Meet the TACTIC in Lib project leadership, advisory board, and graduate research team.">
+  <title>Project Team | TACTIC in Lib</title>
+  <style>
+    :root { --gold:#cfb991; --black:#171717; --muted:#5c6269; --background:#f7f7f5; --border:#e4e4e0; }
+    * { box-sizing:border-box; }
+    body { margin:0; font-family:system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif; color:var(--black); background:var(--background); line-height:1.6; }
+    a { color:#76551b; }
+    a:focus-visible { outline:3px solid #8c6b2b; outline-offset:3px; }
+    .container { max-width:1120px; margin:auto; padding:0 24px; }
+    header { background:#fff; border-bottom:1px solid var(--border); }
+    .nav { display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:16px; padding-top:16px; padding-bottom:16px; }
+    .brand { color:var(--black); font-weight:800; text-decoration:none; font-size:1.2rem; }
+    nav { display:flex; gap:22px; flex-wrap:wrap; }
+    nav a { color:var(--black); text-decoration:none; font-weight:600; }
+    nav a[aria-current="page"] { border-bottom:3px solid #b68a35; }
+    .hero { background:var(--black); color:#fff; padding:64px 0; border-bottom:6px solid var(--gold); }
+    .hero h1 { font-size:clamp(2rem,5vw,3rem); margin:0 0 12px; }
+    .hero p { max-width:720px; color:#e5e5e5; margin:0; }
+    main { padding:24px 0 64px; }
+    section { margin-top:54px; }
+    section h2 { font-size:1.65rem; margin-bottom:6px; }
+    .section-intro { color:var(--muted); margin-top:0; margin-bottom:22px; }
+    .grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(240px,1fr)); gap:22px; }
+    .card { background:#fff; border:1px solid var(--border); border-radius:12px; padding:26px 22px; text-align:center; box-shadow:0 3px 12px #00000008; }
+    .portrait { width:112px; height:112px; border-radius:50%; object-fit:cover; border:4px solid var(--gold); background:#eee; display:block; margin:0 auto 16px; }
+    .initials { display:grid; place-items:center; font-size:1.8rem; font-weight:700; color:#4d3c20; }
+    .card h3 { margin:0 0 4px; font-size:1.18rem; }
+    .role { color:#75531b; font-weight:700; margin:0 0 6px; }
+    .affiliation { color:var(--muted); margin:0 0 10px; }
+    .description { font-size:.94rem; margin:0 0 12px; }
+    .contact { background:#fff; border-left:5px solid var(--gold); padding:24px 28px; border-radius:8px; }
+    footer { background:var(--black); color:#eee; padding:24px 0; font-size:.9rem; }
+    footer a { color:var(--gold); }
+    @media(max-width:600px) { .hero { padding:44px 0; } nav { gap:14px; } .grid { grid-template-columns:1fr; } }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="container nav">
+      <a class="brand" href="index.html">TACTIC in Lib</a>
+      <nav aria-label="Main navigation">
+        <a href="index.html">Home</a>
+        <a href="index.html#about">About</a>
+        <a href="team.html" aria-current="page">Project Team</a>
+      </nav>
+    </div>
+  </header>
+
+  <div class="hero">
+    <div class="container">
+      <h1>Meet the Project Team</h1>
+      <p>Meet the researchers, advisors, and graduate students supporting TACTIC in Lib: Transforming AI Consumers to Innovative AI Creators in Libraries.</p>
+    </div>
+  </div>
+
+  <main class="container">
+    <section aria-labelledby="leadership-title">
+      <h2 id="leadership-title">Project Leadership</h2>
+      <p class="section-intro">The team guiding project research, curriculum development, and implementation.</p>
+      <div class="grid">
+        <article class="card">
+          <!-- Replace the initials block with <img class="portrait" src="images/team/pi.jpg" alt="Portrait of Dr. PI Name"> when a photo is available. -->
+          <div class="portrait initials" aria-hidden="true">PI</div>
+          <h3>Dr. Gang Shao</h3>
+          <p class="role">Principal Investigator</p>
+          <p class="affiliation">Purdue University Libraries and School of Information Studies</p>
+          <p class="description">Project leadership, AI curriculum, and research coordination.</p>
+          <a href="mailto:gshao@purdue.edu">Email</a>
+        </article>
+        <!-- Duplicate a card here for additional Co-PIs or project staff. -->
+      </div>
+    </section>
+
+    <section aria-labelledby="advisory-title">
+      <h2 id="advisory-title">Advisory Board</h2>
+      <p class="section-intro">Advisors providing perspectives on library practice, AI education, and workforce development.</p>
+      <div class="grid">
+        <article class="card">
+          <div class="portrait initials" aria-hidden="true">AB</div>
+          <h3>Dr. Clara Chu</h3>
+          <p class="role">Advisory Board Member</p>
+          <p class="affiliation">University of Illinois, Urbana-Champaign</p>
+          <p class="description">Senior library professionals</p>
+          <!-- Optional: add a public professional profile link here. -->
+        </article>
+        <article class="card">
+          <div class="portrait initials" aria-hidden="true">AB</div>
+          <h3>Dr. Le Yang</h3>
+          <p class="role">Advisory Board Member</p>
+          <p class="affiliation">University of Oregon</p>
+          <p class="description">Senior library professionals</p>
+        </article>
+
+        <article class="card">
+          <div class="portrait initials" aria-hidden="true">AB</div>
+          <h3>Dr. Claudia Engel</h3>
+          <p class="role">Advisory Board Member</p>
+          <p class="affiliation">Stanford University</p>
+          <p class="description">AI/data science experts</p>
+        </article>
+
+        <article class="card">
+          <div class="portrait initials" aria-hidden="true">AB</div>
+          <h3>Dr. Borui Zhang</h3>
+          <p class="role">Advisory Board Member</p>
+          <p class="affiliation">University of Florida</p>
+          <p class="description">AI/data science experts</p>
+        </article>
+
+        <article class="card">
+          <div class="portrait initials" aria-hidden="true">AB</div>
+          <h3>Meng Qu</h3>
+          <p class="role">Advisory Board Member</p>
+          <p class="affiliation">Miami University, Ohio</p>
+          <p class="description">Advisor on IT and end user experience.</p>
+        </article>
+        <!-- Duplicate cards for the remaining advisors. -->
+      </div>
+    </section>
+
+    <section aria-labelledby="students-title">
+      <h2 id="students-title">Graduate Research Team</h2>
+      <p class="section-intro">Graduate students contributing to educational materials, technical development, and project evaluation.</p>
+      <div class="grid">
+        <article class="card">
+          <div class="portrait initials" aria-hidden="true">GS</div>
+          <h3>Tongyan Wang</h3>
+          <p class="role">Graduate Research Assistant</p>
+          <p class="affiliation">ACC, Purdue University</p>
+          <p class="description">Development of TACTIC in Lib resources.</p>
+        </article>
+
+        <article class="card">
+          <div class="portrait initials" aria-hidden="true">GS</div>
+          <h3>Yoonhyuck Woo</h3>
+          <p class="role">Graduate Research Assistant</p>
+          <p class="affiliation">ACC, Purdue University</p>
+          <p class="description">Development of TACTIC in Lib resources.</p>
+        </article>
+        <!-- Duplicate cards for additional graduate students. -->
+      </div>
+    </section>
+
+    <section aria-labelledby="contact-title">
+      <h2 id="contact-title">Contact Us</h2>
+      <div class="contact">
+        <p>Interested in TACTIC in Lib training, collaboration, or project updates? Please contact the project team.</p>
+        <p><strong>Email:</strong> <a href="mailto:gshao@purdue.edu">gshao@purdue.edu</a></p>
+        <p><strong>Institution:</strong> Purdue University Libraries and School of Information Studies</p>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container">
+      <p>TACTIC in Lib · Purdue University · <a href="index.html">Return to homepage</a></p>
+      <p>Supported by the Institute of Museum and Library Services. Project information and views are those of the project team.</p>
+    </div>
+  </footer>
+</body>
+</html>
