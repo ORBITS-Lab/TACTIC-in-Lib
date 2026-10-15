@@ -1,0 +1,738 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Module 6: Building Agents with LangChain | TACTIC in Lib</title>
+<!--
+  ============================================================
+  TODO before publishing (search this file for "TODO"):
+  1. Replace the Purdue logo placeholder with the same image used on Module 5.
+  2. Replace every href="#" marked TODO with the real video / Colab / Drive links.
+  3. (Optional) Add a hero background photo in .hero (see CSS comment).
+  ============================================================
+-->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=Noto+Sans:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --navy: #1E3A8A;
+    --blue: #2563EB;
+    --blue-dark: #1E40AF;
+    --page: #F5F7FA;
+    --card: #FFFFFF;
+    --box: #F8FAFC;
+    --line: #E2E8F0;
+    --text: #1F2937;
+    --muted: #64748B;
+    --green: #16A34A;   --green-bg: #F0FDF4;
+    --red: #DC2626;     --red-bg: #FEF2F2;
+    --purple: #9333EA;  --purple-bg: #FAF5FF;
+    --teal: #0D9488;    --teal-bg: #F0FDFA;
+    --amber: #D97706;   --amber-bg: #FFFBEB;
+    --sky-bg: #EFF6FF;
+  }
+  * { box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  body {
+    margin: 0;
+    background: var(--page);
+    color: var(--text);
+    font-family: "Noto Sans", "Segoe UI", Arial, sans-serif;
+    font-size: 16px;
+    line-height: 1.65;
+  }
+  a { color: var(--blue); }
+  .wrap { max-width: 860px; margin: 0 auto; background: var(--page); }
+
+  /* ---------- Header ---------- */
+  .site-header {
+    display: flex; align-items: center; gap: 18px;
+    background: #fff; padding: 18px 28px;
+  }
+  .logo { display: flex; flex-direction: column; align-items: center; line-height: 1.1; }
+  .logo img { height: 52px; }
+  .logo .logo-text { font-family: Georgia, serif; font-weight: 700; font-size: 15px; letter-spacing: 1px; color: #000; }
+  .logo .logo-sub { font-size: 8px; color: #333; text-align: center; max-width: 90px; }
+  .divider { width: 1px; height: 44px; background: #CBD5E1; }
+  .brand { font-size: 22px; font-weight: 700; color: var(--navy); }
+
+  /* ---------- Hero ---------- */
+  .hero {
+    /* To use a photo like Module 5, add: url('hero.jpg') center/cover after the gradient */
+    background:
+      linear-gradient(135deg, rgba(15, 32, 80, 0.92), rgba(30, 58, 138, 0.82)),
+      radial-gradient(circle at 80% 20%, #3B82F6 0, transparent 55%),
+      #0F2050;
+    color: #fff; text-align: center;
+    padding: 72px 28px 64px;
+  }
+  .hero h1 {
+    font-family: "Archivo Black", "Noto Sans", sans-serif;
+    font-weight: 400; text-transform: uppercase;
+    font-size: clamp(28px, 5.2vw, 42px); line-height: 1.15;
+    margin: 0 0 16px; letter-spacing: 0.5px;
+  }
+  .hero p { margin: 0 auto; max-width: 640px; font-size: 18px; color: #E0E7FF; }
+  .hero .pill-row { margin-top: 22px; display: flex; flex-wrap: wrap; gap: 8px; justify-content: center; }
+  .hero .pill { font-size: 13px; padding: 4px 12px; border-radius: 999px; background: rgba(255,255,255,0.14); border: 1px solid rgba(255,255,255,0.3); }
+
+  /* ---------- Section cards ---------- */
+  main { padding: 36px 20px 8px; }
+  .card {
+    background: var(--card); border-radius: 14px; margin: 0 0 32px;
+    box-shadow: 0 1px 3px rgba(15, 23, 42, 0.08); overflow: hidden;
+  }
+  .card > h2 {
+    margin: 0; background: var(--blue); color: #fff;
+    font-size: 19px; font-weight: 700; padding: 18px 26px;
+  }
+  .card > h2 .tag { font-weight: 500; opacity: 0.85; }
+  .card-body { padding: 24px 26px 26px; }
+  .card-body > p:first-child { margin-top: 0; }
+  h3 { font-size: 17px; color: var(--navy); margin: 26px 0 10px; }
+  h4 { font-size: 15px; margin: 0 0 6px; }
+
+  .box { background: var(--box); border: 1px solid var(--line); border-radius: 10px; padding: 18px 20px; margin: 16px 0; }
+  .callout { border-left: 5px solid var(--blue); background: var(--sky-bg); border-radius: 8px; padding: 16px 20px; margin: 18px 0; }
+  .callout h4 { color: var(--navy); }
+  .callout p { margin: 6px 0 0; }
+  .callout.green  { border-color: var(--green);  background: var(--green-bg); }  .callout.green h4  { color: #166534; }
+  .callout.red    { border-color: var(--red);    background: var(--red-bg); }    .callout.red h4    { color: #991B1B; }
+  .callout.purple { border-color: var(--purple); background: var(--purple-bg); } .callout.purple h4 { color: #6B21A8; }
+  .callout.teal   { border-color: var(--teal);   background: var(--teal-bg); }   .callout.teal h4   { color: #115E59; }
+  .callout.amber  { border-color: var(--amber);  background: var(--amber-bg); }  .callout.amber h4  { color: #92400E; }
+  .callout ol, .callout ul { margin: 8px 0 0; padding-left: 22px; }
+
+  /* Snapshot */
+  .snapshot dl { margin: 0; }
+  .snapshot dt { color: var(--muted); font-size: 14px; margin-top: 14px; }
+  .snapshot dt:first-child { margin-top: 0; }
+  .snapshot dd { margin: 2px 0 0; color: var(--navy); font-weight: 600; }
+
+  /* Workflow steps */
+  .steps { display: grid; gap: 12px; margin-top: 16px; }
+  .step { background: var(--box); border: 1px solid var(--line); border-radius: 10px; padding: 14px 18px; }
+  .step h4 { color: var(--navy); font-size: 16px; }
+  .step p { margin: 0; font-size: 14px; color: #374151; }
+  .step .vid { font-size: 12px; color: var(--muted); }
+
+  /* Agent loop */
+  .loop { display: flex; flex-wrap: wrap; align-items: center; justify-content: center; gap: 8px; margin: 14px 0; }
+  .loop span { background: #fff; border: 1.5px solid var(--blue); color: var(--navy); font-weight: 600; font-size: 14px; padding: 6px 14px; border-radius: 999px; }
+  .loop i { font-style: normal; color: var(--muted); }
+
+  .three { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; margin-top: 12px; }
+  .two { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+  .mini { background: var(--box); border: 1px solid var(--line); border-radius: 10px; padding: 14px 16px; }
+  .mini h4 { color: var(--navy); }
+  .mini p { margin: 0; font-size: 14px; }
+
+  /* Resource tiles */
+  .resources { border: 1px solid #BFDBFE; background: #F0F6FF; border-radius: 12px; padding: 18px; margin: 18px 0; }
+  .resources > h4 { font-size: 16px; color: var(--navy); margin: 0 0 12px; }
+  .tiles { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+  .tile {
+    display: flex; gap: 12px; align-items: flex-start; text-decoration: none; color: var(--text);
+    background: #fff; border: 1px solid #BFDBFE; border-radius: 10px; padding: 12px 14px;
+  }
+  .tile:hover { border-color: var(--blue); box-shadow: 0 2px 6px rgba(37,99,235,0.15); }
+  .tile .ico { font-size: 20px; line-height: 1.3; }
+  .tile b { display: block; color: var(--blue-dark); font-size: 15px; }
+  .tile small { color: var(--muted); font-size: 13px; }
+  .tile.colab { background: #FFFBEB; border-color: #FCD34D; } .tile.colab b { color: #92400E; }
+  .tile.gpu { background: var(--purple-bg); border-color: #D8B4FE; } .tile.gpu b { color: #6B21A8; }
+
+  /* Tables */
+  .table-wrap { overflow-x: auto; margin: 14px 0; border-radius: 8px; border: 1px solid var(--line); }
+  table { width: 100%; border-collapse: collapse; font-size: 14px; background: #fff; }
+  th { background: var(--navy); color: #fff; text-align: left; font-weight: 600; padding: 10px 12px; }
+  td { padding: 10px 12px; border-top: 1px solid var(--line); vertical-align: top; }
+  tr:nth-child(even) td { background: #FAFBFC; }
+
+  /* Code */
+  pre {
+    font-family: "JetBrains Mono", Consolas, monospace; font-size: 13px; line-height: 1.55;
+    background: #fff; border: 1px solid var(--line); border-radius: 8px; padding: 14px 16px;
+    overflow-x: auto; margin: 12px 0;
+  }
+  code { font-family: "JetBrains Mono", Consolas, monospace; font-size: 0.9em; background: #EEF2FF; padding: 1px 5px; border-radius: 4px; }
+  pre code { background: none; padding: 0; font-size: inherit; }
+  .c { color: #64748B; } .k { color: #9333EA; } .s { color: #15803D; } .f { color: #1D4ED8; }
+
+  .compare .bad  { border: 1px solid #FECACA; background: var(--red-bg); border-radius: 10px; padding: 12px 14px; }
+  .compare .good { border: 1px solid #BBF7D0; background: var(--green-bg); border-radius: 10px; padding: 12px 14px; }
+  .compare h4 { font-size: 14px; }
+  .compare pre { margin: 6px 0 0; font-size: 12px; }
+
+  .badge { display: inline-block; font-size: 12px; font-weight: 600; padding: 2px 9px; border-radius: 999px; }
+  .b-green { background: #DCFCE7; color: #166534; }
+  .b-gray  { background: #F1F5F9; color: #475569; }
+  .b-red   { background: #FEE2E2; color: #991B1B; }
+  .b-blue  { background: #DBEAFE; color: #1E40AF; }
+  .b-amber { background: #FEF3C7; color: #92400E; }
+
+  /* Video list */
+  .video { display: grid; grid-template-columns: 54px 1fr; gap: 14px; padding: 16px 0; border-top: 1px solid var(--line); }
+  .video:first-of-type { border-top: none; padding-top: 4px; }
+  .video .num { width: 54px; height: 54px; border-radius: 12px; background: var(--blue); color: #fff; font-weight: 700; font-size: 20px; display: flex; align-items: center; justify-content: center; }
+  .video.optional .num { background: var(--purple); }
+  .video h4 { font-size: 16px; color: var(--navy); margin: 0; }
+  .video .meta { font-size: 13px; color: var(--muted); margin: 2px 0 6px; }
+  .video ul { margin: 0; padding-left: 18px; font-size: 14px; }
+  .btn-sm { display: inline-block; margin-top: 8px; font-size: 13px; font-weight: 600; color: #fff; background: var(--blue); padding: 5px 12px; border-radius: 6px; text-decoration: none; }
+  .video.optional .btn-sm { background: var(--purple); }
+
+  .two > *, .three > *, .tiles > *, .steps > *, .card-body > * { min-width: 0; }
+  pre { max-width: 100%; }
+  ul.clean { padding-left: 20px; margin: 8px 0; }
+  ul.clean li { margin: 6px 0; }
+
+  .back { text-align: center; margin: 12px 0 44px; }
+  .back a { display: inline-block; background: var(--blue); color: #fff; text-decoration: none; font-weight: 600; padding: 14px 34px; border-radius: 999px; }
+  footer { background: var(--navy); color: #fff; text-align: center; padding: 34px 20px; }
+  footer b { letter-spacing: 3px; color: #BFDBFE; }
+  footer p { margin: 8px 0 0; font-size: 14px; color: #93C5FD; }
+
+  @media (max-width: 640px) {
+    .site-header { padding: 14px 16px; }
+    main { padding: 24px 16px 4px; }
+    .card-body { padding: 18px 16px 20px; }
+    .card > h2 { padding: 16px; font-size: 17px; }
+    .three, .two, .tiles { grid-template-columns: 1fr; }
+    .hero { padding: 52px 16px 48px; }
+    .hero p { font-size: 16px; }
+  }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+<!-- ================= Header ================= -->
+<header class="site-header">
+  <div class="logo">
+    <!-- TODO: replace with the Purdue logo image used on Module 5, e.g. <img src="purdue-logo.png" alt="Purdue University Libraries and School of Information Studies"> -->
+    <span class="logo-text">PURDUE</span>
+    <span class="logo-sub">Libraries and School of Information Studies</span>
+  </div>
+  <div class="divider"></div>
+  <div class="brand">TACTIC in Lib</div>
+</header>
+
+<!-- ================= Hero ================= -->
+<section class="hero">
+  <h1>Module 6: Building Agents<br>with LangChain</h1>
+  <p>Tool-using AI agents, real scholarly search, patron-privacy guardrails, and the difference between runtime controls and model alignment in library services.</p>
+  <div class="pill-row">
+    <span class="pill">LangChain v1</span>
+    <span class="pill">Free models only</span>
+    <span class="pill">Google Colab</span>
+    <span class="pill">~90 minutes</span>
+  </div>
+</section>
+
+<main>
+
+<!-- ================= Snapshot ================= -->
+<section class="card snapshot">
+  <h2>Module Snapshot</h2>
+  <div class="card-body">
+    <div class="box">
+      <dl>
+        <dt>Module Title:</dt>
+        <dd>Module 6 – Building Agents with LangChain (Code)</dd>
+        <dt>AI Lifecycle Stage:</dt>
+        <dd>Deployment, Service Integration &amp; Responsible Use</dd>
+        <dt>Target Level:</dt>
+        <dd>Intermediate</dd>
+        <dt>Learning Pathway:</dt>
+        <dd>Code / Low-code (Python notebook in Google Colab)</dd>
+        <dt>Estimated Length:</dt>
+        <dd>~90 minutes (+ optional 10–15 minute GPU extension)</dd>
+        <dt>Primary Tools:</dt>
+        <dd><a href="https://docs.langchain.com/oss/python/langchain/overview" target="_blank" rel="noopener">LangChain</a>, Google Colab, Groq / Google AI Studio / Ollama, SerpAPI (Google Scholar), Crossref &amp; OpenAlex</dd>
+      </dl>
+    </div>
+  </div>
+</section>
+
+<!-- ================= Why ================= -->
+<section class="card" id="why">
+  <h2>Why Agentic AI &amp; LangChain?</h2>
+  <div class="card-body">
+    <p>In Module 5, librarians fine-tuned a model that does <b>one job well</b> and previewed agentic automation with Amazon Q. In this module the relationship flips. Instead of calling a model inside a pipeline you wrote, you build a system in which <b>the model decides what to do next</b>: which tool to call, what to search for, and when to stop.</p>
+
+    <div class="callout">
+      <h4>Module Goal</h4>
+      <p>Learners build a library reference agent with <b>LangChain</b> that calls tools, searches <b>real scholarly data</b>, and operates under <b>privacy, approval, and citation guardrails</b>. They then compare these runtime guardrails with <b>training-time alignment</b> (RLHF / DPO) to understand what a library can and cannot control.</p>
+    </div>
+
+    <h3>LLM-based Application vs. LLM-based Agent</h3>
+    <div class="table-wrap">
+      <table>
+        <tr><th style="width:22%">Category</th><th>LLM-based Application</th><th>LLM-based Agent</th></tr>
+        <tr><td><b>Definition</b></td><td>An LLM integrated into a system built for one specific purpose</td><td>A dynamic system where the LLM reasons and acts on its own</td></tr>
+        <tr><td><b>Control flow</b></td><td>Fixed pipeline: Input → LLM → Output</td><td>Iterative loop: Reason → Select tool → Act → Observe → Repeat</td></tr>
+        <tr><td><b>Decision maker</b></td><td>The developer, through code</td><td>The LLM, at each step</td></tr>
+        <tr><td><b>Flexibility</b></td><td>Predefined behavior</td><td>Adaptive, context-aware behavior</td></tr>
+        <tr><td><b>Library examples</b></td><td>Ticket classifier (Module 5), summarizer, retrieval QA</td><td>Research assistant that searches, verifies, and cites</td></tr>
+      </table>
+    </div>
+
+    <h3>The agent execution loop</h3>
+    <p>An agent is not a smarter model. It is the <b>same model placed inside a loop</b> with access to tools:</p>
+    <div class="loop">
+      <span>Goal</span><i>→</i><span>Plan</span><i>→</i><span>Act</span><i>→</i><span>Observe</span><i>→</i><span>Reflect</span><i>→</i><span>Repeat or finish</span>
+    </div>
+    <p>Your job shifts from <b>scripting</b> every step to <b>supervising</b> a process. That shift is what this module is really teaching.</p>
+
+    <h3>Why LangChain?</h3>
+    <p>LLMs become far more useful when combined with external data, tools, and application logic. LangChain makes it easy to start building such applications while still supporting production use. Three properties matter most here:</p>
+    <div class="three">
+      <div class="mini"><h4>Abstraction</h4><p>Express complex LLM tasks with reusable components such as <code>@tool</code> and <code>create_agent</code>.</p></div>
+      <div class="mini"><h4>Standardization</h4><p>Swap Groq, Gemini, or a local model through one common interface.</p></div>
+      <div class="mini"><h4>Chaining</h4><p>Connect models, tools, and middleware into a single working pipeline.</p></div>
+    </div>
+
+    <div class="resources">
+      <h4>🎬 Concept Video &amp; Colab Notebook</h4>
+      <div class="tiles">
+        <a class="tile" href="#"><!-- TODO: Video 1 link --><span class="ico">🎥</span><span><b>Watch Video Tutorial</b><small>Introduction to Agentic AI and LangChain</small></span></a>
+        <a class="tile colab" href="#"><!-- TODO: Colab link --><span class="ico">⚡</span><span><b>Google Colab Notebook</b><small>Understanding Agentic AI · Why LangChain</small></span></a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= Workflow ================= -->
+<section class="card" id="workflow">
+  <h2>The Agent-Building Workflow</h2>
+  <div class="card-body">
+    <p>This module follows a 6-step path from a bare language model to a library agent you could responsibly put in front of patrons, plus an exploratory comparison with model alignment.</p>
+    <div class="steps">
+      <div class="step"><h4>1. Choose a Free Model</h4><p>Connect a no-cost model that supports tool calling: Groq, Google AI Studio, or a fully local Ollama model.</p></div>
+      <div class="step"><h4>2. Establish the Baseline</h4><p>See exactly what a bare LLM cannot do: answer questions that need live, local, or current information.</p></div>
+      <div class="step"><h4>3. Build a Tool-Using Agent</h4><p>Turn a Python function into a tool with <code>@tool</code> and create the reason–act loop with <code>create_agent</code>.</p></div>
+      <div class="step"><h4>4. Design Better Tools</h4><p>Write tool names, docstrings, and arguments that tell the model <i>when</i> and <i>how</i> to use each tool.</p></div>
+      <div class="step"><h4>5. Connect Scholarly Data</h4><p>Search Google Scholar, attach DOIs from Crossref, and fall back to OpenAlex in a literature search agent.</p></div>
+      <div class="step"><h4>6. Add Guardrails</h4><p>Redact patron PII, require human approval, verify citations, and keep the agent within service scope.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= Getting started ================= -->
+<section class="card" id="setup">
+  <h2>Getting Started: Choose a Free Model</h2>
+  <div class="card-body">
+    <p>Everything in this module runs on a model that costs nothing. You only need <b>one</b> of the three options below. Tool calling, the model's ability to say <i>"call <code>literature_search</code> with <code>query='digital preservation'</code>"</i>, is the core capability an agent needs, and not every free model supports it equally well.</p>
+
+    <div class="resources">
+      <h4>🎬 Setup Video &amp; Colab Notebook</h4>
+      <div class="tiles">
+        <a class="tile" href="#"><!-- TODO: Video 2 link --><span class="ico">🎥</span><span><b>Watch Setup Video</b><small>Free models, API keys &amp; rate limits</small></span></a>
+        <a class="tile colab" href="#"><!-- TODO: Colab link --><span class="ico">⚡</span><span><b>Google Colab Notebook</b><small>Module 6 interactive notebook</small></span></a>
+      </div>
+    </div>
+
+    <div class="table-wrap">
+      <table>
+        <tr><th style="width:22%"></th><th>Google AI Studio (Gemini)</th><th>Groq Cloud</th><th>Ollama (Local)</th></tr>
+        <tr><td><b>Credit card?</b></td><td>No (Google account)</td><td>No (email / SSO)</td><td>No (open source)</td></tr>
+        <tr><td><b>Pricing</b></td><td>Free tier, rate-limited</td><td>Free developer tier, rate-limited</td><td>Fully free on your computer</td></tr>
+        <tr><td><b>Strength</b></td><td>Generous daily requests</td><td>Very fast; reliable tool calling</td><td>No limits except hardware</td></tr>
+        <tr><td><b>Privacy</b></td><td>Free-tier prompts may be logged</td><td>Standard cloud privacy terms</td><td><b>Data never leaves the computer</b></td></tr>
+      </table>
+    </div>
+    <p style="font-size:13px;color:var(--muted);margin-top:-4px">Free-tier models and limits change often. Check each provider before running the module with a group.</p>
+
+    <div class="two" style="margin-top:14px">
+      <div class="callout teal" style="margin:0"><h4>Per-minute limit (RPM / TPM)</h4><p>A "speed limit": like a reference desk policy that allows only so many questions per minute so the librarian isn't overwhelmed by a sudden rush.</p></div>
+      <div class="callout amber" style="margin:0"><h4>Daily limit (RPD / TPD)</h4><p>A "daily allowance": like a daily checkout limit. Once you reach it, you wait until the allowance resets tomorrow.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= Task 1 ================= -->
+<section class="card" id="task1">
+  <h2>Task 1: Establishing the Baseline: What a Bare LLM Cannot Do</h2>
+  <div class="card-body">
+    <p>Before building an agent, see clearly what a model <b>without tools</b> cannot do. Learners ask a question whose answer changes every day and cannot be in any training set:</p>
+    <pre><code>response = model.invoke(<span class="s">"What is the weather like today in West Lafayette, Indiana?"</span>)
+print(response.content)      <span class="c"># refuses, hedges, or invents a plausible number</span>
+print(response.tool_calls)   <span class="c"># [] : it has nothing to call yet</span></code></pre>
+
+    <div class="resources">
+      <h4>🎬 Video Tutorial &amp; Notebook (Tasks 1–2)</h4>
+      <div class="tiles">
+        <a class="tile" href="#"><!-- TODO: Video 3 link --><span class="ico">🎥</span><span><b>Watch Video Tutorial</b><small>From LLMs to Tool-Using Agents</small></span></a>
+        <a class="tile colab" href="#"><!-- TODO: Colab link --><span class="ico">⚡</span><span><b>Google Colab Notebook</b><small>Task 1 · Establish the baseline</small></span></a>
+      </div>
+    </div>
+
+    <div class="callout green">
+      <h4>Interpretation Prompts</h4>
+      <ul>
+        <li>Did the model admit it did not know, or did it invent an answer?</li>
+        <li><code>response.tool_calls</code> is empty. What would have to change for it to contain something?</li>
+        <li>A patron asks <i>"Is the library open right now?"</i> Which part can a bare model answer, and which part needs a tool?</li>
+      </ul>
+    </div>
+    <div class="callout">
+      <h4>Teaching Point for Librarians</h4>
+      <p><b>Diagnose first, then choose the tool.</b> Just as you inspect a PDF's text layer before deciding whether OCR is needed, you check what the model cannot know before deciding what tools to give it.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ================= Task 2 ================= -->
+<section class="card" id="task2">
+  <h2>Task 2: Turning the Model into an Agent</h2>
+  <div class="card-body">
+    <p>A <b>tool</b> is an ordinary Python function with two additions that matter enormously: a <b>type-annotated signature</b> and a <b>docstring</b>. The model never sees your code; it sees the tool's name, description, and argument schema.</p>
+<pre><code><span class="k">@tool</span>
+<span class="k">def</span> <span class="f">get_weather</span>(location: str) -&gt; str:
+    <span class="s">"""Get the current weather for a specific city or location.
+    Use this whenever the user asks about weather, temperature, or conditions."""</span>
+    ...
+
+agent = <span class="f">create_agent</span>(model, tools=[get_weather],
+                     system_prompt=<span class="s">"You are a helpful assistant for an academic library. ..."</span>)</code></pre>
+
+    <div class="callout green">
+      <h4>Hands-on Steps</h4>
+      <ol>
+        <li>Define <code>get_weather</code> with <code>@tool</code> and inspect its name, description, and schema.</li>
+        <li>Build the agent with <code>create_agent</code>: one function call turns a model plus tools into a running agent.</li>
+        <li>Draw the graph: a <code>model</code> node, a <code>tools</code> node, and an edge that loops back (LangGraph runs underneath).</li>
+        <li>Ask the Task 1 question again and read the step-by-step <b>reasoning trace</b>: model → tool call → tool result → final answer.</li>
+      </ol>
+    </div>
+    <div class="callout">
+      <h4>Teaching Point for Librarians</h4>
+      <p>Same model, same question, different outcome. The only change is that the model now has <b>somewhere to look</b>. The trace makes the agent's decisions inspectable, which is the starting point for supervising it.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ================= Task 3 ================= -->
+<section class="card" id="task3">
+  <h2>Task 3: Tool Design Clinic</h2>
+  <div class="card-body">
+    <p>The most common reason a beginner's agent misbehaves is not the model. It is a <b>vague tool description</b>. Learners give an agent two tools that wrap the same function, one described badly and one described well, and watch which one it picks.</p>
+    <div class="two compare">
+      <div class="bad">
+        <h4>❌ Badly described</h4>
+<pre><code><span class="k">@tool</span>
+<span class="k">def</span> <span class="f">lookup</span>(q: str) -&gt; str:
+    <span class="s">"""Look something up."""</span></code></pre>
+      </div>
+      <div class="good">
+        <h4>✅ Well described</h4>
+<pre><code><span class="k">@tool</span>
+<span class="k">def</span> <span class="f">lookup_course_reserves</span>(course_code: str):
+    <span class="s">"""Look up the reading list on reserve
+    for a specific course. Use this ONLY for
+    course reserves. Do not use it for
+    general catalog searches.
+    Args: course_code, e.g. "CNIT 566"."""</span></code></pre>
+      </div>
+    </div>
+
+    <div class="resources">
+      <h4>🎬 Video Tutorial &amp; Notebook (Tasks 3–4)</h4>
+      <div class="tiles">
+        <a class="tile" href="#"><!-- TODO: Video 4 link --><span class="ico">🎥</span><span><b>Watch Video Tutorial</b><small>Designing Tools &amp; a Research Agent</small></span></a>
+        <a class="tile colab" href="#"><!-- TODO: Colab link --><span class="ico">⚡</span><span><b>Google Colab Notebook</b><small>Task 3 · Tool design clinic</small></span></a>
+      </div>
+    </div>
+
+    <div class="callout">
+      <h4>Teaching Point for Librarians</h4>
+      <p>A tool description is to an agent what a <b>scope note</b> is to a cataloger: it says what belongs here, what does not, and what form the input should take. Good descriptions tell the model <i>when</i> to use a tool, <i>what</i> to pass, and <i>when not</i> to use it.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ================= Task 4 ================= -->
+<section class="card" id="task4">
+  <h2>Task 4: A Literature Search Agent with Real Scholarly Data</h2>
+  <div class="card-body">
+    <p>Learners replace the stub with a real scholarly source. The agent turns a natural-language research question into a search, retrieves evidence from outside the model, and organizes the results with titles, authors, venues, citation counts, and DOIs.</p>
+
+    <div class="table-wrap">
+      <table>
+        <tr><th style="width:24%">Source</th><th>Role in the agent</th><th style="width:28%">Access</th></tr>
+        <tr><td><b>Google Scholar</b> via SerpAPI</td><td>Primary search: familiar to researchers, includes snippets and citation counts</td><td>Free API key; 250 searches/month, 50/hour</td></tr>
+        <tr><td><b>Crossref</b></td><td>Matches each result's title to find its DOI (Scholar results have none)</td><td>Free, no key</td></tr>
+        <tr><td><b>OpenAlex</b></td><td>Automatic fallback, and the recommended source while developing and testing</td><td>Free, no key</td></tr>
+      </table>
+    </div>
+
+    <div class="callout green">
+      <h4>Hands-on Steps</h4>
+      <ol>
+        <li>Create a free SerpAPI account and set <code>SERPAPI_API_KEY</code> in the notebook.</li>
+        <li>Run the helper functions for Google Scholar, Crossref, and OpenAlex.</li>
+        <li>Wrap them in the <code>literature_search</code> tool and test it directly.</li>
+        <li>Give the tool to an agent and ask a real research question.</li>
+      </ol>
+    </div>
+    <div class="callout red">
+      <h4>Limitations to Discuss</h4>
+      <p>Every tool call uses one SerpAPI search, and an agent may search several times while refining a query, so the free quota can run out quickly with a group. Crossref matching can fail for theses, preprints, and less formally published works. Use OpenAlex for repeated testing and save Google Scholar for when it is needed.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ================= Task 5 ================= -->
+<section class="card" id="task5">
+  <h2>Task 5: Guardrails for Public Service</h2>
+  <div class="card-body">
+    <p>An agent that works is not the same as an agent you can put in front of patrons. In LangChain, the layer between "works" and "deployable" is <b>middleware</b>: small, composable policies that wrap every model call and every tool call. <b>The model itself never changes</b>, so the same guardrails work with Gemini, GPT, Claude, or a local model.</p>
+
+    <h3>Where guardrails run</h3>
+    <div class="table-wrap">
+      <table>
+        <tr><th style="width:26%">Hook</th><th>When it runs</th><th>Library example</th></tr>
+        <tr><td><code>before_agent</code></td><td>Once, before anything else</td><td>Refuse out-of-scope requests (medical, legal, investment)</td></tr>
+        <tr><td><code>before_model</code> / <code>after_model</code></td><td>Around every model call</td><td>Redact patron PII before it reaches the provider</td></tr>
+        <tr><td>Around tool calls</td><td>Before a tool executes</td><td>Pause <code>email_patron</code> for librarian approval</td></tr>
+        <tr><td><code>after_agent</code></td><td>Once, before the answer reaches the patron</td><td>Check that cited DOIs came from real search results</td></tr>
+      </table>
+    </div>
+
+    <h3>Four guardrails you build</h3>
+    <div class="two">
+      <div class="callout purple" style="margin:0"><h4>🔒 PII Redaction</h4><p><code>PIIMiddleware</code> removes emails, card numbers, and IP addresses <b>before the request leaves the notebook</b>.</p></div>
+      <div class="callout teal" style="margin:0"><h4>✋ Human Approval</h4><p><code>HumanInTheLoopMiddleware</code> pauses before tools that write, send, or spend: emails, holds, record edits.</p></div>
+      <div class="callout amber" style="margin:0"><h4>📚 Citation Grounding</h4><p>A custom middleware flags any DOI in the answer that never appeared in a tool result.</p></div>
+      <div class="callout red" style="margin:0"><h4>🚧 Scope Restriction</h4><p>A custom middleware refuses out-of-scope requests before spending a single token.</p></div>
+    </div>
+
+    <h3>What the model provider receives</h3>
+    <div class="table-wrap">
+      <table>
+        <tr><th style="width:22%">Field</th><th>Without guardrails</th><th>With guardrails</th></tr>
+        <tr><td>Email</td><td><code>j.martinez@purdue.edu</code></td><td><code>[REDACTED_EMAIL]</code></td></tr>
+        <tr><td>Card number</td><td><code>5105-1051-0510-5100</code></td><td><code>****-****-****-5100</code></td></tr>
+        <tr><td>IP address</td><td><code>128.210.14.7</code></td><td><code>[REDACTED_IP]</code></td></tr>
+      </table>
+    </div>
+    <p style="font-size:13px;color:var(--muted);margin-top:-4px">Example values are fictional test data from the notebook.</p>
+
+    <div class="resources">
+      <h4>🎬 Video Tutorial &amp; Notebook (Task 5)</h4>
+      <div class="tiles">
+        <a class="tile" href="#"><!-- TODO: Video 5 link --><span class="ico">🎥</span><span><b>Watch Video Tutorial</b><small>Guardrails for Public Service</small></span></a>
+        <a class="tile colab" href="#"><!-- TODO: Colab link --><span class="ico">⚡</span><span><b>Google Colab Notebook</b><small>Task 5 · Middleware guardrails</small></span></a>
+      </div>
+    </div>
+
+    <div class="callout">
+      <h4>Teaching Point for Librarians</h4>
+      <p>Patron privacy is not a feature request; in most institutions it is a legal and professional obligation. Deterministic guardrails (rules, regex, keyword lists) are fast, free, and predictable but miss what they did not anticipate. Model-based guardrails catch subtler cases but add cost and delay.</p>
+    </div>
+    <div class="callout red">
+      <h4>What LangChain Will Not Guarantee</h4>
+      <p>A rule in a system prompt, such as <i>"If a search returns nothing useful, try ONE broader search,"</i> is a <b>request</b>, not a rule. The model usually honors it. "Usually" is fine for a demo and a poor standard for a service, which is why enforceable checks belong in middleware.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ================= Task 6 ================= -->
+<section class="card" id="task6">
+  <h2>Task 6 (Exploratory): Guardrails vs. Model Alignment</h2>
+  <div class="card-body">
+    <p>A common question: <i>"Is this the same as the safety training AI companies talk about, like RLHF?"</i> It is not. Think of an AI agent as a <b>new staff member at the reference desk</b>: training shapes how they generally behave, but on the job they still follow library policy, verify information, and ask for approval.</p>
+
+    <div class="table-wrap">
+      <table>
+        <tr><th style="width:22%"></th><th>Training-Time Alignment (RLHF, DPO)</th><th>Runtime Guardrails</th></tr>
+        <tr><td><b>When</b></td><td>During training</td><td>During each interaction</td></tr>
+        <tr><td><b>What changes</b></td><td>The model's weights</td><td>How requests and actions are processed</td></tr>
+        <tr><td><b>Who controls it</b></td><td>Typically model developers</td><td>Application operators, including libraries</td></tr>
+        <tr><td><b>Library example</b></td><td>Encourage helpful, honest responses</td><td>Block access to patron records; verify DOIs</td></tr>
+      </table>
+    </div>
+
+    <h3>Part A: Measuring hallucination with and without guardrails</h3>
+    <p>Learners ask the same eight questions under three conditions and compare the answers side by side.</p>
+    <div class="three">
+      <div class="mini"><h4>Questions</h4><p>5 from the <b>TruthfulQA</b> benchmark, 2 <b>fake citation</b> traps, 1 <b>real citation</b> control</p></div>
+      <div class="mini"><h4>Conditions</h4><p>No guardrail · Prompt guardrail · Prompt + self-check middleware (<code>@after_model</code>)</p></div>
+      <div class="mini"><h4>Labels</h4><p><span class="badge b-green">CORRECT</span> <span class="badge b-gray">ABSTAINED</span> <span class="badge b-red">HALLUCINATED</span></p></div>
+    </div>
+    <p>Expect the clearest difference on the <b>fake citations</b>: a model trained to be helpful tends to produce a well-formatted citation when asked for one, and guardrails can catch it. Watch the <b>real citation control</b> too: if a guardrail refuses a real paper, that is <b>over-refusal</b>, the cost of being too cautious.</p>
+
+    <h3>Part B (optional, T4 GPU): Training a preference with DPO</h3>
+    <p>Learners change a small model's <b>weights</b> with <b>Direct Preference Optimization</b>, a simpler relative of RLHF, using pairs of a preferred answer (<i>chosen</i>) and a rejected one. The whole method fits in one line:</p>
+<pre style="white-space:pre-wrap"><code>margin = β × [(chosen answer's gain over the original model) − (rejected answer's gain over the original model)]</code></pre>
+    <p>Then they compare the model's answers to the same eight questions before and after training.</p>
+
+    <div class="resources">
+      <h4>🎬 Video Tutorials &amp; Notebook (Task 6)</h4>
+      <div class="tiles">
+        <a class="tile" href="#"><!-- TODO: Video 6 link --><span class="ico">🎥</span><span><b>Watch Video Tutorial</b><small>Guardrails vs. Model Alignment</small></span></a>
+        <a class="tile gpu" href="#"><!-- TODO: Video 7 link --><span class="ico">🧪</span><span><b>Optional: Hands-on DPO</b><small>Requires a Colab T4 GPU runtime</small></span></a>
+        <a class="tile" href="https://huggingface.co/datasets/truthfulqa/truthful_qa" target="_blank" rel="noopener"><span class="ico">📊</span><span><b>TruthfulQA Dataset</b><small>Hugging Face benchmark</small></span></a>
+        <a class="tile colab" href="#"><!-- TODO: Colab link --><span class="ico">⚡</span><span><b>Google Colab Notebook</b><small>Task 6 · Experiment &amp; DPO</small></span></a>
+      </div>
+    </div>
+
+    <div class="callout">
+      <h4>Teaching Point for Librarians</h4>
+      <p>Preference training teaches a model <b>how to behave when it is unsure</b>; it does not give the model knowledge it lacks. When using externally hosted models, libraries usually cannot change training, but they can define instructions, approved sources, access limits, verification steps, and human oversight. <b>Training and runtime controls are complementary, not alternatives.</b></p>
+    </div>
+  </div>
+</section>
+
+<!-- ================= Data & Materials ================= -->
+<section class="card" id="materials">
+  <h2>Data &amp; Materials</h2>
+  <div class="card-body">
+    <div class="box">
+      <h4 style="color:var(--navy)">Notebook, Keys &amp; Data Sources</h4>
+      <ul class="clean">
+        <li><b>Colab Notebook:</b> <a href="#">Open in Google Colab</a> <!-- TODO --></li>
+        <li><b>Model API key (choose one):</b> <a href="https://console.groq.com" target="_blank" rel="noopener">Groq Console</a> · <a href="https://aistudio.google.com/apikey" target="_blank" rel="noopener">Google AI Studio</a> · <a href="https://ollama.com" target="_blank" rel="noopener">Ollama</a> (local, no key)</li>
+        <li><b>Scholarly search key:</b> <a href="https://serpapi.com" target="_blank" rel="noopener">SerpAPI</a> (free tier) · <a href="https://www.crossref.org/documentation/retrieve-metadata/rest-api/" target="_blank" rel="noopener">Crossref API</a> · <a href="https://openalex.org" target="_blank" rel="noopener">OpenAlex</a></li>
+        <li><b>Evaluation data:</b> <a href="https://huggingface.co/datasets/truthfulqa/truthful_qa" target="_blank" rel="noopener">TruthfulQA</a> (Hugging Face)</li>
+        <li><b>Framework docs:</b> <a href="https://docs.langchain.com/oss/python/langchain/overview" target="_blank" rel="noopener">LangChain</a></li>
+      </ul>
+    </div>
+    <div class="box">
+      <h4 style="color:var(--navy)">Expected Learner Outputs</h4>
+      <ul class="clean">
+        <li><b>A Working Reference Agent:</b> a LangChain agent that searches real scholarly data and cites what it found.</li>
+        <li><b>A Guardrail Configuration:</b> PII redaction, approval gates, citation grounding, and scope rules applied to the agent.</li>
+        <li><b>A Short Evaluation Note:</b> a comparison of the three guardrail conditions, including at least one example of hallucination and one of over-refusal.</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- ================= Core Skills ================= -->
+<section class="card" id="skills">
+  <h2>Core Skills in This Module</h2>
+  <div class="card-body">
+    <div class="callout"><h4>Agent Design</h4><p>Building tool-using agents with <code>@tool</code> and <code>create_agent</code>, and reading their reasoning traces.</p></div>
+    <div class="callout green"><h4>Tool Description Writing</h4><p>Writing docstrings and arguments that steer the model to the right tool for the right question.</p></div>
+    <div class="callout purple"><h4>Scholarly API Integration</h4><p>Connecting Google Scholar, Crossref, and OpenAlex as live evidence sources for an agent.</p></div>
+    <div class="callout amber"><h4>Guardrails &amp; Alignment Literacy</h4><p>Applying middleware for privacy, approval, and verification, and explaining how runtime controls differ from RLHF and DPO.</p></div>
+  </div>
+</section>
+
+<!-- ================= GLAM Applications ================= -->
+<section class="card" id="glam">
+  <h2>Library and GLAM Applications</h2>
+  <div class="card-body">
+    <ul class="clean">
+      <li><b>Virtual Reference Assistance:</b> agents that search approved sources and route uncertain questions to a librarian.</li>
+      <li><b>Verified Literature Discovery:</b> literature searches where every citation is checked against real search results.</li>
+      <li><b>Patron Privacy Protection:</b> stripping personal information before any request reaches an external AI provider.</li>
+      <li><b>Approval Workflows:</b> requiring staff sign-off before an agent emails patrons, places holds, or edits records.</li>
+      <li><b>AI Policy &amp; Procurement:</b> knowing which behaviors a vendor's training controls and which the library must enforce itself.</li>
+    </ul>
+  </div>
+</section>
+
+<!-- ================= Video Tutorials ================= -->
+<section class="card" id="videos">
+  <h2>Video Tutorials</h2>
+  <div class="card-body">
+    <div class="video">
+      <div class="num">1</div>
+      <div>
+        <h4>Introduction to Agentic AI and LangChain</h4>
+        <div class="meta">~8–10 min · Concepts only · Notebook intro</div>
+        <ul><li>LLM-based application vs. agent; who decides what happens next</li><li>The agent execution loop</li><li>What LangChain is and why we use it</li></ul>
+        <a class="btn-sm" href="#">▶ Watch Video 1</a><!-- TODO -->
+      </div>
+    </div>
+    <div class="video">
+      <div class="num">2</div>
+      <div>
+        <h4>Setting Up a Free Model</h4>
+        <div class="meta">~5–8 min · Getting Started</div>
+        <ul><li>Installing LangChain in Colab</li><li>Groq, Google AI Studio, and Ollama; creating an API key</li><li>Understanding rate limits</li></ul>
+        <a class="btn-sm" href="#">▶ Watch Video 2</a><!-- TODO -->
+      </div>
+    </div>
+    <div class="video">
+      <div class="num">3</div>
+      <div>
+        <h4>From LLMs to Tool-Using Agents</h4>
+        <div class="meta">~12–15 min · Tasks 1–2</div>
+        <ul><li>The bare-model baseline</li><li><code>@tool</code> and <code>create_agent</code></li><li>Reading the agent's reasoning trace</li></ul>
+        <a class="btn-sm" href="#">▶ Watch Video 3</a><!-- TODO -->
+      </div>
+    </div>
+    <div class="video">
+      <div class="num">4</div>
+      <div>
+        <h4>Designing Tools and Building a Research Agent</h4>
+        <div class="meta">~15–18 min · Tasks 3–4</div>
+        <ul><li>Tool design clinic: bad vs. good descriptions</li><li>SerpAPI setup and the literature search tool</li><li>Google Scholar, Crossref, and OpenAlex in one agent</li></ul>
+        <a class="btn-sm" href="#">▶ Watch Video 4</a><!-- TODO -->
+      </div>
+    </div>
+    <div class="video">
+      <div class="num">5</div>
+      <div>
+        <h4>Building Reliable Agents with Guardrails</h4>
+        <div class="meta">~18–20 min · Task 5</div>
+        <ul><li>How middleware hooks work</li><li>PII redaction and human-in-the-loop approval</li><li>Citation grounding, scope restriction, and the limits of prompt rules</li></ul>
+        <a class="btn-sm" href="#">▶ Watch Video 5</a><!-- TODO -->
+      </div>
+    </div>
+    <div class="video">
+      <div class="num">6</div>
+      <div>
+        <h4>Guardrails vs. Model Alignment</h4>
+        <div class="meta">~12–15 min · Task 6, Part A</div>
+        <ul><li>Training time vs. runtime: RLHF and guardrails</li><li>TruthfulQA and fake-citation experiment across three conditions</li><li>Hallucination vs. over-refusal</li></ul>
+        <a class="btn-sm" href="#">▶ Watch Video 6</a><!-- TODO -->
+      </div>
+    </div>
+    <div class="video optional">
+      <div class="num">7</div>
+      <div>
+        <h4>Optional: Hands-on DPO</h4>
+        <div class="meta">~10–12 min · Task 6, Part B · Requires a T4 GPU</div>
+        <ul><li>Preference pairs: chosen vs. rejected answers</li><li>The DPO loss in one line of code</li><li>Comparing answers before and after training</li></ul>
+        <a class="btn-sm" href="#">▶ Watch Video 7</a><!-- TODO -->
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= Learning Outcomes ================= -->
+<section class="card" id="outcomes">
+  <h2>Learning Outcomes</h2>
+  <div class="card-body">
+    <ul class="clean">
+      <li>Explain the difference between an <b>LLM-based application</b> and an <b>LLM-based agent</b>.</li>
+      <li>Set up a free or local language model that supports tool calling.</li>
+      <li>Wrap a library data source as a <b>tool</b> and build a working agent with <code>create_agent</code>.</li>
+      <li>Read an agent's reasoning trace and diagnose why it chose a given tool.</li>
+      <li>Write tool descriptions that guide the model to the right tool.</li>
+      <li>Connect an agent to real scholarly data and verify the citations it returns.</li>
+      <li>Apply privacy, approval, grounding, and scope <b>guardrails</b> before an agent serves patrons.</li>
+      <li>Distinguish <b>runtime guardrails</b> from <b>training-time alignment</b> (RLHF, DPO) and identify what a library can control.</li>
+    </ul>
+  </div>
+</section>
+
+<div class="back"><a href="#">Back to Main Page</a><!-- TODO: main page link --></div>
+
+</main>
+
+<footer>
+  <b>TACTIC INSTITUTE X IMLS</b>
+  <p>Empowering the future of GLAM institutions through code and no-code AI innovation.</p>
+</footer>
+
+</div>
+</body>
+</html>
