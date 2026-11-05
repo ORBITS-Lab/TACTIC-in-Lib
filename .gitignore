@@ -212,6 +212,7 @@ __marimo__/
 data/
 *.csv
 *.parquet
+!librarian-agent-demo/**
 
 # Secrets / API keys
 .env
