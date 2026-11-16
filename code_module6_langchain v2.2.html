@@ -397,28 +397,6 @@
                         </div>
                     </div>
 
-                    <div class="bg-gradient-to-r from-blue-50 to-indigo-50 p-5 rounded-lg border border-blue-200 space-y-3">
-                        <h4 class="font-bold text-blue-900 text-md flex items-center gap-2">
-                            <span>🎬</span> Video Tutorial & Notebook (Tasks 1–2)
-                        </h4>
-                        <div class="grid sm:grid-cols-2 gap-3 text-sm">
-                            <a href="#" target="_blank" class="flex items-center gap-2 p-3 bg-white rounded-lg border border-blue-200 hover:border-blue-400 hover:shadow-sm transition text-blue-900 font-medium"><!-- TODO: Video 3 link -->
-                                <span class="text-base">🎥</span>
-                                <div>
-                                    <div class="font-bold text-blue-700">Watch Video Tutorial</div>
-                                    <div class="text-xs text-gray-500">From LLMs to Tool-Using Agents</div>
-                                </div>
-                            </a>
-                            <a href="https://colab.research.google.com/drive/1GgiCzjIv20jPyadjQ8JIEYeyI00QxC_D#scrollTo=DnviUFRly4C2" target="_blank" class="flex items-center gap-2 p-3 bg-white rounded-lg border border-yellow-200 hover:border-yellow-400 hover:shadow-sm transition text-yellow-900 font-medium"><!-- TODO: Colab link -->
-                                <span class="text-base">⚡</span>
-                                <div>
-                                    <div class="font-bold text-yellow-800">Google Colab Notebook</div>
-                                    <div class="text-xs text-gray-500">Task 1 · Establish the baseline</div>
-                                </div>
-                            </a>
-                        </div>
-                    </div>
-
                     <div class="bg-gray-50 p-5 rounded-lg border border-gray-200 space-y-3">
                         <h4 class="font-bold text-blue-900">Worked Example</h4>
                         <div class="space-y-3 text-sm">
@@ -474,6 +452,28 @@ print(response.tool_calls)   <span class="text-gray-500"># [] : it has nothing t
                         <div class="bg-teal-50 p-4 rounded-lg border-l-4 border-teal-500">
                             <h4 class="font-bold text-teal-900 mb-2">✅ Expected Outcome</h4>
                             <p class="text-sm">A working agent, and a four-step trace in which it calls the weather tool and answers from the result.</p>
+                        </div>
+                    </div>
+
+                    <div class="bg-gradient-to-r from-blue-50 to-indigo-50 p-5 rounded-lg border border-blue-200 space-y-3">
+                        <h4 class="font-bold text-blue-900 text-md flex items-center gap-2">
+                            <span>🎬</span> Video Tutorial & Notebook (Tasks 1–2)
+                        </h4>
+                        <div class="grid sm:grid-cols-2 gap-3 text-sm">
+                            <a href="https://drive.google.com/file/d/1_5qT69I7gKGK-xRbqFzJSvegjjsgYfMg/view?usp=drive_link" target="_blank" class="flex items-center gap-2 p-3 bg-white rounded-lg border border-blue-200 hover:border-blue-400 hover:shadow-sm transition text-blue-900 font-medium"><!-- TODO: Video 3 link -->
+                                <span class="text-base">🎥</span>
+                                <div>
+                                    <div class="font-bold text-blue-700">Watch Video Tutorial</div>
+                                    <div class="text-xs text-gray-500">From LLMs to Tool-Using Agents</div>
+                                </div>
+                            </a>
+                            <a href="https://colab.research.google.com/drive/1GgiCzjIv20jPyadjQ8JIEYeyI00QxC_D#scrollTo=DnviUFRly4C2" target="_blank" class="flex items-center gap-2 p-3 bg-white rounded-lg border border-yellow-200 hover:border-yellow-400 hover:shadow-sm transition text-yellow-900 font-medium"><!-- TODO: Colab link -->
+                                <span class="text-base">⚡</span>
+                                <div>
+                                    <div class="font-bold text-yellow-800">Google Colab Notebook</div>
+                                    <div class="text-xs text-gray-500">Task 1 · Establish the baseline</div>
+                                </div>
+                            </a>
                         </div>
                     </div>
 
@@ -540,28 +540,6 @@ agent = <span class="text-blue-700">create_agent</span>(model, tools=[get_weathe
                         <div class="bg-teal-50 p-4 rounded-lg border-l-4 border-teal-500">
                             <h4 class="font-bold text-teal-900 mb-2">✅ Expected Outcome</h4>
                             <p class="text-sm">A record of which tool the agent picked for each question, and your own rewritten tool description.</p>
-                        </div>
-                    </div>
-
-                    <div class="bg-gradient-to-r from-blue-50 to-indigo-50 p-5 rounded-lg border border-blue-200 space-y-3">
-                        <h4 class="font-bold text-blue-900 text-md flex items-center gap-2">
-                            <span>🎬</span> Video Tutorial & Notebook (Tasks 3–4)
-                        </h4>
-                        <div class="grid sm:grid-cols-2 gap-3 text-sm">
-                            <a href="#" target="_blank" class="flex items-center gap-2 p-3 bg-white rounded-lg border border-blue-200 hover:border-blue-400 hover:shadow-sm transition text-blue-900 font-medium"><!-- TODO: Video 4 link -->
-                                <span class="text-base">🎥</span>
-                                <div>
-                                    <div class="font-bold text-blue-700">Watch Video Tutorial</div>
-                                    <div class="text-xs text-gray-500">Designing Tools & a Research Agent</div>
-                                </div>
-                            </a>
-                            <a href="https://colab.research.google.com/drive/1GgiCzjIv20jPyadjQ8JIEYeyI00QxC_D#scrollTo=G8_LDFBGfwci" target="_blank" class="flex items-center gap-2 p-3 bg-white rounded-lg border border-yellow-200 hover:border-yellow-400 hover:shadow-sm transition text-yellow-900 font-medium"><!-- TODO: Colab link -->
-                                <span class="text-base">⚡</span>
-                                <div>
-                                    <div class="font-bold text-yellow-800">Google Colab Notebook</div>
-                                    <div class="text-xs text-gray-500">Task 3 · Tool design clinic</div>
-                                </div>
-                            </a>
                         </div>
                     </div>
 
@@ -687,14 +665,14 @@ agent = <span class="text-blue-700">create_agent</span>(model, tools=[get_weathe
 
                     <div class="bg-gradient-to-r from-blue-50 to-indigo-50 p-5 rounded-lg border border-blue-200 space-y-3">
                         <h4 class="font-bold text-blue-900 text-md flex items-center gap-2">
-                            <span>🎬</span> Video Tutorial & Notebook (Task 4)
+                            <span>🎬</span> Video Tutorial & Notebook (Tasks 3-4)
                         </h4>
                         <div class="grid sm:grid-cols-2 gap-3 text-sm">
                             <a href="#" target="_blank" class="flex items-center gap-2 p-3 bg-white rounded-lg border border-blue-200 hover:border-blue-400 hover:shadow-sm transition text-blue-900 font-medium"><!-- TODO: Video 4 link (timestamp for Task 4) -->
                                 <span class="text-base">🎥</span>
                                 <div>
                                     <div class="font-bold text-blue-700">Watch Video Tutorial</div>
-                                    <div class="text-xs text-gray-500">Designing Tools & a Research Agent</div>
+                                    <div class="text-xs text-gray-500">Tool Design & a Research Agent</div>
                                 </div>
                             </a>
                             <a href="#" target="_blank" class="flex items-center gap-2 p-3 bg-white rounded-lg border border-yellow-200 hover:border-yellow-400 hover:shadow-sm transition text-yellow-900 font-medium"><!-- TODO: Colab link (Task 4 section) -->
